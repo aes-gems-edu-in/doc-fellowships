@@ -1,23 +1,25 @@
 # Dependencies
 node_modules/
 /node_modules
+**/node_modules/**
 /.pnp
 .pnp.js
 
 # Testing
 /coverage
+coverage/
 
 # Production
 build/
 /build
+**/build/**
 
 # Misc
 .DS_Store
+**/.DS_Store
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.*
+!.env.example
 
 npm-debug.log*
 yarn-debug.log*
@@ -30,9 +32,11 @@ yarn-error.log*
 *.swo
 *~
 
-# TypeScript
+# TypeScript / caches
 *.tsbuildinfo
-
-# Cache
 .eslintcache
 .cache/
+**/.cache/
+node_modules/.cache/
+node_modules/.cache/**
+**/babel-loader/

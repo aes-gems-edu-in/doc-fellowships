@@ -175,17 +175,18 @@ export default function HeroSection({ specialty = null, onHomeClick }: HeroSecti
                   xs: "1.55rem",
                   sm: "1.9rem",
                   md: "2.25rem",
-                  lg: "2.6rem",
-                  xl: "3rem",
-                  tv: "3.5rem",
+                  lg: "3.4rem",
+                  xl: "3.8rem",
+                  tv: "4.2rem",
                 },
                 lineHeight: 1.15,
                 mb: { xs: 1.25, md: 1.5 },
                 letterSpacing: "-0.02em",
+                whiteSpace: "pre-line",
               }}
             >
               {headlineBefore}
-              <Box component="span" sx={{ color: "#0056D2" }}>
+              <Box component="span" sx={{ display: "block", color: "#0056D2" }}>
                 {headlineHighlight}
               </Box>
             </Typography>
@@ -194,7 +195,7 @@ export default function HeroSection({ specialty = null, onHomeClick }: HeroSecti
               sx={{
                 fontWeight: 700,
                 color: "#0B1F3A",
-                fontSize: { xs: 14, sm: 15, md: 17, tv: 19 },
+                fontSize: { xs: 14, sm: 15, md: 22, lg: 24, xl: 26, tv: 28 },
                 mb: 1.25,
               }}
             >
@@ -205,7 +206,7 @@ export default function HeroSection({ specialty = null, onHomeClick }: HeroSecti
               <Typography
                 sx={{
                   color: "#5A6B80",
-                  fontSize: { xs: 13, sm: 13.5, md: 14.5, tv: 16 },
+                  fontSize: { xs: 13, sm: 13.5, md: 14.5, lg: 16, xl: 18, tv: 20 },
                   lineHeight: 1.7,
                 }}
               >

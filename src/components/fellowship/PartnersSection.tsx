@@ -50,33 +50,58 @@ export default function PartnersSection() {
         <Box
           id="partners"
           sx={{
-            display: "grid",
-            gridTemplateColumns: {
-              xs: "repeat(2, 1fr)",
-              sm: "repeat(3, 1fr)",
-              md: "repeat(4, 1fr)",
-              lg: "repeat(4, 1fr)",
-              xl: "repeat(8, 1fr)",
-            },
-            gap: { xs: 2, sm: 2.5, md: 3, tv: 3.5 },
+            display: "flex",
+            flexDirection: "row",
+            flexWrap: "nowrap",
             alignItems: "center",
-            justifyItems: "center",
+            justifyContent: "center",
+            gap: { xs: 1.25, sm: 1.5, md: 4, lg: 4, tv: 4 },
+            m: 0,
+            ml: 0,
+            overflowX: { xs: "auto", lg: "visible" },
+            pb: { xs: 1, lg: 0 },
+            WebkitOverflowScrolling: "touch",
+            "&::-webkit-scrollbar": { height: 4 },
+            "&::-webkit-scrollbar-thumb": {
+              bgcolor: "#D7E0EC",
+              borderRadius: 2,
+            },
           }}
         >
           {partners.map((partner) => (
             <Box
               key={partner.id}
-              component="img"
-              src={partner.logo}
-              alt={partner.name}
               sx={{
-                height: { xs: 52, sm: 64, md: 80, tv: 96 },
-                width: "100%",
-                maxWidth: { xs: 120, sm: 140, md: 150, tv: 170 },
-                objectFit: "contain",
-                opacity: 0.85,
+                m: 0,
+                ml: 0,
+                flexShrink: 0,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: { xs: 100, sm: 112, md: 128, lg: 140, tv: 156 },
+                height: { xs: 64, sm: 72, md: 84, lg: 92, tv: 104 },
+                px: 1.25,
+                py: 1,
+                border: "none",
+                borderRadius: "12px",
+                bgcolor: "#fff",
+                boxShadow: "none",
               }}
-            />
+            >
+              <Box
+                component="img"
+                src={partner.logo}
+                alt={partner.name}
+                sx={{
+                  height: { xs: 36, sm: 44, md: 52, lg: 70, xl: 80, tv: 90 },
+                  width: "auto",
+                  maxWidth: "100%",
+                  objectFit: "contain",
+                  opacity: 0.9,
+                  display: "block",
+                }}
+              />
+            </Box>
           ))}
         </Box>
       </Container>
