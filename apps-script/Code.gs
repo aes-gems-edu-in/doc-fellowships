@@ -1,21 +1,23 @@
 /**
  * DocTutorials Fellowship — Google Apps Script
  *
- * SETUP:
- * 1. Google Drive → New → Google Sheets → name it "Fellowship Leads"
- * 2. Extensions → Apps Script → paste this whole file → Save
- * 3. Run setupSheet() once (Authorize when prompted)
- * 4. Deploy → New deployment → Type: Web app
- *      - Execute as: Me
- *      - Who has access: Anyone
- * 5. Copy the Web App URL → put in .env as:
- *      REACT_APP_APPS_SCRIPT_URL=https://script.google.com/macros/s/XXXX/exec
- * 6. Restart npm start
+ * Direct save to YOUR Google Sheet (sheets.google.com).
  *
- * Sheet → File → Download → Microsoft Excel (.xlsx) for Excel export.
+ * SETUP:
+ * 1. Open your Google Sheet in browser
+ * 2. Copy ID from URL:
+ *    https://docs.google.com/spreadsheets/d/THIS_IS_THE_ID/edit
+ * 3. Paste that ID below in SPREADSHEET_ID
+ * 4. Create a tab named exactly: fellowship  (or script will create it)
+ * 5. Paste this file in Apps Script → Save
+ * 6. Run setupSheet() once (Authorize)
+ * 7. Deploy → Manage deployments → Edit → New version → Deploy
  */
 
-var SHEET_NAME = "Leads";
+// ★ Paste your Google Sheet ID here (from the Sheet URL)
+var SPREADSHEET_ID = "1EsXz8_D4vF38tZPdZgHOnyICVSRUeFU5Fu0Fbhd8E8s";
+
+var SHEET_NAME = "fellowship";
 
 var HEADERS = [
   "Timestamp",
@@ -28,9 +30,12 @@ var HEADERS = [
 ];
 
 function doGet() {
+  var ss = getSpreadsheet_();
   return jsonResponse({
     ok: true,
     message: "DocTutorials Fellowship Leads API is running",
+    sheetUrl: ss.getUrl(),
+    sheetName: SHEET_NAME,
   });
 }
 
@@ -52,7 +57,7 @@ function doPost(e) {
       });
     }
 
-    var sheet = getOrCreateSheet_();
+    var sheet = getOrCreateTab_();
     sheet.appendRow([
       new Date(),
       fullName,
@@ -66,6 +71,7 @@ function doPost(e) {
     return jsonResponse({
       ok: true,
       message: "Lead saved successfully",
+      sheetUrl: sheet.getParent().getUrl(),
     });
   } catch (err) {
     return jsonResponse({
@@ -75,37 +81,37 @@ function doPost(e) {
   }
 }
 
-/** Run once from Apps Script editor to create headers. */
+/** Run once — opens your Sheet and prepares the fellowship tab. */
 function setupSheet() {
-  var sheet = getOrCreateSheet_();
-  return "Sheet ready: " + sheet.getName();
+  var ss = getSpreadsheet_();
+  var sheet = getOrCreateTab_();
+  Logger.log("SHEET URL: " + ss.getUrl());
+  Logger.log("TAB: " + sheet.getName());
+  return ss.getUrl();
 }
 
-/** Optional: download current sheet as Excel (.xlsx) to your Drive. */
-function exportSheetAsExcel() {
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
-  var url =
-    "https://docs.google.com/spreadsheets/d/" +
-    ss.getId() +
-    "/export?format=xlsx";
-
-  var blob = UrlFetchApp.fetch(url, {
-    headers: { Authorization: "Bearer " + ScriptApp.getOAuthToken() },
-  }).getBlob().setName(ss.getName() + ".xlsx");
-
-  var file = DriveApp.createFile(blob);
-  return file.getUrl();
+function getSpreadsheet_() {
+  if (!SPREADSHEET_ID || SPREADSHEET_ID === "PASTE_YOUR_SHEET_ID_HERE") {
+    throw new Error(
+      "Set SPREADSHEET_ID in Code.gs to your Google Sheet ID from the URL."
+    );
+  }
+  return SpreadsheetApp.openById(SPREADSHEET_ID);
 }
 
-function getOrCreateSheet_() {
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+function getOrCreateTab_() {
+  var ss = getSpreadsheet_();
   var sheet = ss.getSheetByName(SHEET_NAME);
 
   if (!sheet) {
     sheet = ss.insertSheet(SHEET_NAME);
   }
 
-  if (sheet.getLastRow() === 0) {
+  var firstCell = sheet.getRange(1, 1).getValue();
+  if (sheet.getLastRow() === 0 || firstCell !== HEADERS[0]) {
+    if (sheet.getLastRow() > 0) {
+      sheet.clear();
+    }
     sheet.appendRow(HEADERS);
     sheet.getRange(1, 1, 1, HEADERS.length).setFontWeight("bold");
     sheet.setFrozenRows(1);
@@ -117,16 +123,14 @@ function getOrCreateSheet_() {
 function parseRequest_(e) {
   if (!e) return {};
 
-  // JSON body (recommended from React)
   if (e.postData && e.postData.contents) {
     try {
       return JSON.parse(e.postData.contents);
     } catch (err) {
-      // form-urlencoded fallback
+      // fall through
     }
   }
 
-  // Form / query params fallback
   if (e.parameter) {
     return e.parameter;
   }

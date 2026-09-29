@@ -2,6 +2,7 @@ import { FormEvent, useEffect, useState } from "react";
 import {
   Box,
   Button,
+  CircularProgress,
   MenuItem,
   Stack,
   TextField,
@@ -65,6 +66,7 @@ export default function LeadFormCard({ defaultSpecialty = "" }: LeadFormCardProp
   const [form, setForm] = useState<FormFields>(emptyForm(defaultSpecialty));
   const [errors, setErrors] = useState<FormErrors>({});
   const [touched, setTouched] = useState<Partial<Record<keyof FormFields, boolean>>>({});
+  const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
     setForm((prev) => ({ ...prev, specialty: defaultSpecialty || prev.specialty }));
@@ -126,6 +128,7 @@ export default function LeadFormCard({ defaultSpecialty = "" }: LeadFormCardProp
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
+    if (submitting) return;
 
     const nextErrors = validateAll();
     setErrors(nextErrors);
@@ -156,20 +159,26 @@ export default function LeadFormCard({ defaultSpecialty = "" }: LeadFormCardProp
     };
 
     const scriptUrl = process.env.REACT_APP_APPS_SCRIPT_URL?.trim();
+    setSubmitting(true);
 
     try {
       if (scriptUrl) {
         // Apps Script web apps need no-cors from browser; sheet still receives the row
-        await fetch(scriptUrl, {
-          method: "POST",
-          mode: "no-cors",
-          headers: { "Content-Type": "text/plain;charset=utf-8" },
-          body: JSON.stringify(payload),
-        });
+        await Promise.all([
+          fetch(scriptUrl, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
+            body: JSON.stringify(payload),
+          }),
+          // keep loader visible while Apps Script writes the row
+          new Promise((resolve) => setTimeout(resolve, 1200)),
+        ]);
       } else {
         console.warn(
           "REACT_APP_APPS_SCRIPT_URL missing — lead not sent to Google Sheet."
         );
+        await new Promise((resolve) => setTimeout(resolve, 600));
       }
 
       toast.success("Thanks! Our team will share program details shortly.");
@@ -178,6 +187,8 @@ export default function LeadFormCard({ defaultSpecialty = "" }: LeadFormCardProp
       setTouched({});
     } catch {
       toast.error("Could not save your details. Please try again.");
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -223,7 +234,7 @@ export default function LeadFormCard({ defaultSpecialty = "" }: LeadFormCardProp
         {leadForm.subtitle}
       </Typography>
 
-      <Stack spacing={1.75}>
+      <Stack spacing={1.75} sx={{ opacity: submitting ? 0.72 : 1, pointerEvents: submitting ? "none" : "auto" }}>
         <TextField
           fullWidth
           required
@@ -236,6 +247,7 @@ export default function LeadFormCard({ defaultSpecialty = "" }: LeadFormCardProp
           error={Boolean(errors.fullName)}
           helperText={errors.fullName || " "}
           InputLabelProps={{ shrink: true }}
+          disabled={submitting}
           sx={fieldSx}
         />
 
@@ -256,6 +268,7 @@ export default function LeadFormCard({ defaultSpecialty = "" }: LeadFormCardProp
             pattern: "[0-9]*",
           }}
           InputLabelProps={{ shrink: true }}
+          disabled={submitting}
           InputProps={{
             startAdornment: (
               <Typography sx={{ mr: 1, color: "#4A5568", fontSize: 14, fontWeight: 600 }}>
@@ -279,6 +292,7 @@ export default function LeadFormCard({ defaultSpecialty = "" }: LeadFormCardProp
           error={Boolean(errors.email)}
           helperText={errors.email || " "}
           InputLabelProps={{ shrink: true }}
+          disabled={submitting}
           sx={fieldSx}
         />
 
@@ -294,6 +308,7 @@ export default function LeadFormCard({ defaultSpecialty = "" }: LeadFormCardProp
           error={Boolean(errors.specialty)}
           helperText={errors.specialty || " "}
           InputLabelProps={{ shrink: true }}
+          disabled={submitting}
           SelectProps={{
             displayEmpty: true,
             renderValue: (selected) => {
@@ -328,6 +343,7 @@ export default function LeadFormCard({ defaultSpecialty = "" }: LeadFormCardProp
           onChange={(e) => updateField("city", e.target.value)}
           helperText=" "
           InputLabelProps={{ shrink: true }}
+          disabled={submitting}
           SelectProps={{
             displayEmpty: true,
             renderValue: (selected) => {
@@ -357,7 +373,10 @@ export default function LeadFormCard({ defaultSpecialty = "" }: LeadFormCardProp
           type="submit"
           variant="contained"
           fullWidth
-          endIcon={<ArrowForwardIcon />}
+          disabled={submitting}
+          endIcon={
+            submitting ? undefined : <ArrowForwardIcon />
+          }
           sx={{
             mt: 0.25,
             py: 1.35,
@@ -366,9 +385,21 @@ export default function LeadFormCard({ defaultSpecialty = "" }: LeadFormCardProp
             borderRadius: "10px",
             bgcolor: "#0056D2",
             "&:hover": { bgcolor: "#0041A8" },
+            "&.Mui-disabled": {
+              bgcolor: "#0056D2",
+              color: "#fff",
+              opacity: 0.85,
+            },
           }}
         >
-          {leadForm.submitLabel}
+          {submitting ? (
+            <Stack direction="row" spacing={1.25} alignItems="center">
+              <CircularProgress size={18} thickness={5} sx={{ color: "#fff" }} />
+              <Box component="span">Submitting...</Box>
+            </Stack>
+          ) : (
+            leadForm.submitLabel
+          )}
         </Button>
       </Stack>
 
