@@ -163,16 +163,26 @@ export default function LeadFormCard({ defaultSpecialty = "" }: LeadFormCardProp
 
     try {
       if (scriptUrl) {
-        // Apps Script web apps need no-cors from browser; sheet still receives the row
+        // form-urlencoded is most reliable with Apps Script e.parameter + no-cors
+        const body = new URLSearchParams({
+          fullName: payload.fullName,
+          phone: payload.phone,
+          email: payload.email,
+          specialty: payload.specialty,
+          city: payload.city,
+          source: payload.source,
+        }).toString();
+
         await Promise.all([
           fetch(scriptUrl, {
             method: "POST",
             mode: "no-cors",
-            headers: { "Content-Type": "text/plain;charset=utf-8" },
-            body: JSON.stringify(payload),
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+            },
+            body,
           }),
-          // keep loader visible while Apps Script writes the row
-          new Promise((resolve) => setTimeout(resolve, 1200)),
+          new Promise((resolve) => setTimeout(resolve, 1500)),
         ]);
       } else {
         console.warn(
@@ -204,7 +214,7 @@ export default function LeadFormCard({ defaultSpecialty = "" }: LeadFormCardProp
         boxShadow: "0 16px 48px rgba(0, 50, 120, 0.16)",
         border: "1px solid rgba(0, 86, 210, 0.08)",
         width: "100%",
-        maxWidth: 450,
+        maxWidth: { xs: "100%", sm: 450, tv: 480 },
       }}
     >
       <Typography

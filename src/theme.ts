@@ -64,13 +64,17 @@ const theme = createTheme({
     },
     MuiContainer: {
       defaultProps: {
-        maxWidth: "lg",
+        maxWidth: "xl",
       },
       styleOverrides: {
         maxWidthLg: {
           maxWidth: 1180,
           "@media (min-width:1536px)": { maxWidth: 1280 },
           "@media (min-width:1920px)": { maxWidth: 1440 },
+        },
+        maxWidthXl: {
+          maxWidth: "95% !important",
+          width: "95%",
         },
       },
     },

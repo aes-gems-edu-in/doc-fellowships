@@ -1,22 +1,17 @@
 /**
  * DocTutorials Fellowship — Google Apps Script
  *
- * Direct save to YOUR Google Sheet (sheets.google.com).
+ * Saves form leads into Google Sheet tab: fellowship
  *
  * SETUP:
- * 1. Open your Google Sheet in browser
- * 2. Copy ID from URL:
- *    https://docs.google.com/spreadsheets/d/THIS_IS_THE_ID/edit
- * 3. Paste that ID below in SPREADSHEET_ID
- * 4. Create a tab named exactly: fellowship  (or script will create it)
- * 5. Paste this file in Apps Script → Save
- * 6. Run setupSheet() once (Authorize)
- * 7. Deploy → Manage deployments → Edit → New version → Deploy
+ * 1. Paste this file → Save
+ * 2. Confirm SPREADSHEET_ID below
+ * 3. Run setupSheet() once (Authorize Sheets + Drive)
+ * 4. Deploy → Manage deployments → Edit → New version → Deploy
+ *    Execute as: Me | Who has access: Anyone
  */
 
-// ★ Paste your Google Sheet ID here (from the Sheet URL)
 var SPREADSHEET_ID = "1EsXz8_D4vF38tZPdZgHOnyICVSRUeFU5Fu0Fbhd8E8s";
-
 var SHEET_NAME = "fellowship";
 
 var HEADERS = [
@@ -29,117 +24,115 @@ var HEADERS = [
   "Source",
 ];
 
-function doGet() {
-  var ss = getSpreadsheet_();
-  return jsonResponse({
-    ok: true,
-    message: "DocTutorials Fellowship Leads API is running",
-    sheetUrl: ss.getUrl(),
-    sheetName: SHEET_NAME,
-  });
+function doGet(e) {
+  // Allow simple GET test + optional query-param save backup
+  try {
+    if (e && e.parameter && e.parameter.fullName) {
+      saveLead_(e.parameter);
+      return htmlOk_("Saved");
+    }
+    var ss = SpreadsheetApp.openById(SPREADSHEET_ID);
+    return htmlOk_(
+      "OK — API running. Sheet: " + ss.getUrl() + " | Tab: " + SHEET_NAME
+    );
+  } catch (err) {
+    return htmlOk_("ERROR: " + err.message);
+  }
 }
 
 function doPost(e) {
   try {
     var data = parseRequest_(e);
-
-    var fullName = String(data.fullName || "").trim();
-    var phone = String(data.phone || "").trim();
-    var email = String(data.email || "").trim();
-    var specialty = String(data.specialty || "").trim();
-    var city = String(data.city || "").trim();
-    var source = String(data.source || "fellowship-website").trim();
-
-    if (!fullName || !phone || !email || !specialty) {
-      return jsonResponse({
-        ok: false,
-        error: "Missing required fields: fullName, phone, email, specialty",
-      });
-    }
-
-    var sheet = getOrCreateTab_();
-    sheet.appendRow([
-      new Date(),
-      fullName,
-      phone.indexOf("+") === 0 ? phone : "+91" + phone,
-      email,
-      specialty,
-      city || "-",
-      source,
-    ]);
-
-    return jsonResponse({
-      ok: true,
-      message: "Lead saved successfully",
-      sheetUrl: sheet.getParent().getUrl(),
-    });
+    saveLead_(data);
+    // HtmlService avoids ContentService 302 redirect issues with browser no-cors
+    return htmlOk_("Lead saved");
   } catch (err) {
-    return jsonResponse({
-      ok: false,
-      error: String(err && err.message ? err.message : err),
-    });
+    return htmlOk_("ERROR: " + (err && err.message ? err.message : err));
   }
 }
 
-/** Run once — opens your Sheet and prepares the fellowship tab. */
 function setupSheet() {
-  var ss = getSpreadsheet_();
   var sheet = getOrCreateTab_();
-  Logger.log("SHEET URL: " + ss.getUrl());
-  Logger.log("TAB: " + sheet.getName());
-  return ss.getUrl();
+  Logger.log("Ready: " + sheet.getParent().getUrl() + " tab=" + sheet.getName());
+  return sheet.getParent().getUrl();
 }
 
-function getSpreadsheet_() {
-  if (!SPREADSHEET_ID || SPREADSHEET_ID === "PASTE_YOUR_SHEET_ID_HERE") {
-    throw new Error(
-      "Set SPREADSHEET_ID in Code.gs to your Google Sheet ID from the URL."
-    );
+function saveLead_(data) {
+  var fullName = String((data && data.fullName) || "").trim();
+  var phone = String((data && data.phone) || "").trim();
+  var email = String((data && data.email) || "").trim();
+  var specialty = String((data && data.specialty) || "").trim();
+  var city = String((data && data.city) || "").trim();
+  var source = String((data && data.source) || "fellowship-website").trim();
+
+  if (!fullName || !phone || !email || !specialty) {
+    throw new Error("Missing required fields");
   }
-  return SpreadsheetApp.openById(SPREADSHEET_ID);
+
+  var sheet = getOrCreateTab_();
+  sheet.appendRow([
+    new Date(),
+    fullName,
+    phone.indexOf("+") === 0 ? phone : "+91" + phone,
+    email,
+    specialty,
+    city || "-",
+    source,
+  ]);
 }
 
 function getOrCreateTab_() {
-  var ss = getSpreadsheet_();
+  var ss = SpreadsheetApp.openById(SPREADSHEET_ID);
   var sheet = ss.getSheetByName(SHEET_NAME);
 
   if (!sheet) {
     sheet = ss.insertSheet(SHEET_NAME);
   }
 
-  var firstCell = sheet.getRange(1, 1).getValue();
-  if (sheet.getLastRow() === 0 || firstCell !== HEADERS[0]) {
-    if (sheet.getLastRow() > 0) {
-      sheet.clear();
-    }
+  // Only write headers if the sheet is completely empty
+  if (sheet.getLastRow() === 0) {
     sheet.appendRow(HEADERS);
     sheet.getRange(1, 1, 1, HEADERS.length).setFontWeight("bold");
     sheet.setFrozenRows(1);
+  } else {
+    var first = String(sheet.getRange(1, 1).getValue() || "");
+    if (first !== HEADERS[0]) {
+      sheet.insertRowBefore(1);
+      sheet.getRange(1, 1, 1, HEADERS.length).setValues([HEADERS]);
+      sheet.getRange(1, 1, 1, HEADERS.length).setFontWeight("bold");
+      sheet.setFrozenRows(1);
+    }
   }
 
   return sheet;
 }
 
 function parseRequest_(e) {
-  if (!e) return {};
+  var out = {};
 
-  if (e.postData && e.postData.contents) {
+  if (e && e.parameter) {
+    Object.keys(e.parameter).forEach(function (key) {
+      out[key] = e.parameter[key];
+    });
+  }
+
+  if (e && e.postData && e.postData.contents) {
+    var raw = e.postData.contents;
     try {
-      return JSON.parse(e.postData.contents);
+      var json = JSON.parse(raw);
+      Object.keys(json).forEach(function (key) {
+        out[key] = json[key];
+      });
     } catch (err) {
-      // fall through
+      // application/x-www-form-urlencoded already in e.parameter
     }
   }
 
-  if (e.parameter) {
-    return e.parameter;
-  }
-
-  return {};
+  return out;
 }
 
-function jsonResponse(payload) {
-  return ContentService.createTextOutput(JSON.stringify(payload)).setMimeType(
-    ContentService.MimeType.JSON
+function htmlOk_(message) {
+  return HtmlService.createHtmlOutput(
+    "<!doctype html><html><body>" + message + "</body></html>"
   );
 }
