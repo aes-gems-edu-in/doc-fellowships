@@ -1,0 +1,658 @@
+{
+  "brand": {
+    "name": "DOC TUTORIALS",
+    "logo": "/assets/fellowship/icons/logo-mark.svg",
+    "primaryColor": "#0056D2",
+    "eyebrow": "DOCTUTORIALS FELLOWSHIP"
+  },
+  "hero": {
+    "headlineBefore": "Advanced Fellowship Programs for Doctors ",
+    "headlineHighlight": "Ready to Go Further",
+    "subheadline": "Advance Your Expertise. Evolve With Medicine.",
+    "description": "Specialised, super-speciality oriented fellowship programs with expert mentorship, hands-on clinical exposure and real-world learning at leading hospitals.",
+    "scriptText": "Better Doctors\nBrighter Healthcare",
+    "image": "/assets/fellowship/hero-full.png",
+    "background": "/assets/fellowship/hero-full.png",
+    "cpdBadge": "/assets/fellowship/badges/cpd.svg",
+    "cpdLabel": "Accredited for CPD Hours",
+    "cpdSubLabel": "Continuing Professional Development",
+    "stats": [
+      {
+        "id": "doctors",
+        "value": "1,000+",
+        "label": "Doctors Trained",
+        "icon": "groups"
+      },
+      {
+        "id": "hospitals",
+        "value": "40+",
+        "label": "Partner Hospitals",
+        "icon": "apartment"
+      },
+      {
+        "id": "courses",
+        "value": "",
+        "label": "Courses",
+        "icon": "menu_book"
+      },
+      {
+        "id": "mentorship",
+        "value": "",
+        "label": "Expert Mentorship",
+        "icon": "school"
+      }
+    ]
+  },
+  "leadForm": {
+    "eyebrow": "TAKE THE NEXT STEP",
+    "title": "Find the Right Fellowship for Your Career",
+    "subtitle": "Get personalised guidance from our academic team and find the best program for your goals.",
+    "submitLabel": "Get Program Details",
+    "fields": {
+      "fullName": "Full Name",
+      "phone": "Phone Number",
+      "email": "Email Address",
+      "specialty": "Specialty Interested In",
+      "city": "Preferred City"
+    },
+    "trustPoints": [
+      {
+        "id": "guidance",
+        "label": "Expert Guidance",
+        "icon": "support_agent"
+      },
+      {
+        "id": "details",
+        "label": "Program Details",
+        "icon": "description"
+      },
+      {
+        "id": "admission",
+        "label": "Admission Support",
+        "icon": "how_to_reg"
+      }
+    ],
+    "cities": [
+      "Mumbai",
+      "Delhi",
+      "Bangalore",
+      "Chennai",
+      "Hyderabad",
+      "Pune",
+      "Kolkata",
+      "Ahmedabad"
+    ]
+  },
+  "specialties": [
+    {
+      "id": "cardiology",
+      "name": "Cardiology",
+      "icon": "favorite",
+      "description": "Advanced training in interventional and clinical cardiology with hands-on cath lab exposure.",
+      "heroImage": "/assets/fellowship/heroes/cardiology.png",
+      "headlineBefore": "Cardiology Fellowship Programs for Doctors ",
+      "headlineHighlight": "Ready to Go Further",
+      "subheadline": "Master Interventional & Clinical Cardiology.",
+      "heroDescription": "Hands-on cath lab training, complex PCI exposure and mentorship from leading cardiologists at partner heart institutes."
+    },
+    {
+      "id": "pediatrics",
+      "name": "Pediatrics & Neonatology",
+      "icon": "child_care",
+      "description": "Comprehensive neonatal and pediatric critical care training in high-volume centres.",
+      "heroImage": "/assets/fellowship/heroes/pediatrics.png",
+      "headlineBefore": "Pediatrics & Neonatology Programs for Doctors ",
+      "headlineHighlight": "Ready to Go Further",
+      "subheadline": "Advance Neonatal & Pediatric Care Skills.",
+      "heroDescription": "Immersive NICU and pediatric critical care fellowships with procedure-focused training at high-volume centres."
+    },
+    {
+      "id": "critical-care",
+      "name": "Critical Care",
+      "icon": "monitor_heart",
+      "description": "ICU-focused fellowship covering ventilator management, sepsis, and emergency protocols.",
+      "heroImage": "/assets/fellowship/heroes/critical-care.png",
+      "headlineBefore": "Critical Care Fellowship Programs for Doctors ",
+      "headlineHighlight": "Ready to Go Further",
+      "subheadline": "Lead With Confidence in the ICU.",
+      "heroDescription": "Multi-organ support, ventilator mastery and evidence-based ICU protocols under expert intensivists."
+    },
+    {
+      "id": "radiology",
+      "name": "Radiology",
+      "icon": "radiology",
+      "description": "Imaging interpretation and interventional radiology under expert radiologists.",
+      "heroImage": "/assets/fellowship/heroes/radiology.png",
+      "headlineBefore": "Radiology Fellowship Programs for Doctors ",
+      "headlineHighlight": "Ready to Go Further",
+      "subheadline": "Sharpen Imaging & Reporting Expertise.",
+      "heroDescription": "Structured CT/MRI reporting, ultrasound and interventional basics with high case volume mentorship."
+    },
+    {
+      "id": "orthopaedics",
+      "name": "Orthopaedics",
+      "icon": "accessibility_new",
+      "description": "Surgical and non-surgical orthopaedic training across trauma and joint replacement.",
+      "heroImage": "/assets/fellowship/heroes/orthopaedics.png",
+      "headlineBefore": "Orthopaedics Fellowship Programs for Doctors ",
+      "headlineHighlight": "Ready to Go Further",
+      "subheadline": "Advance Surgical Orthopaedics Skills.",
+      "heroDescription": "Joint replacement, trauma and peri-operative care training with supervised OT exposure."
+    },
+    {
+      "id": "obgyn",
+      "name": "Obstetrics & Gynaecology",
+      "icon": "pregnant_woman",
+      "description": "Advanced OBGYN skills including laparoscopy, high-risk obstetrics, and reproductive health.",
+      "heroImage": "/assets/fellowship/heroes/obgyn.png",
+      "headlineBefore": "OBGYN Fellowship Programs for Doctors ",
+      "headlineHighlight": "Ready to Go Further",
+      "subheadline": "Elevate Women's Health Practice.",
+      "heroDescription": "High-risk obstetrics, laparoscopy fundamentals and structured clinical mentorship in maternity centres."
+    },
+    {
+      "id": "internal-medicine",
+      "name": "Internal Medicine",
+      "icon": "medical_services",
+      "description": "Broad-based internal medicine fellowship with complex case management and wards.",
+      "heroImage": "/assets/fellowship/heroes/internal-medicine.png",
+      "headlineBefore": "Internal Medicine Fellowships for Doctors ",
+      "headlineHighlight": "Ready to Go Further",
+      "subheadline": "Strengthen Adult Disease Management.",
+      "heroDescription": "Complex case management, emergency modules and specialist case studies for confident clinical practice."
+    },
+    {
+      "id": "surgery",
+      "name": "Surgery",
+      "icon": "content_cut",
+      "description": "Hands-on general and specialty surgical training with supervised OT exposure.",
+      "heroImage": "/assets/fellowship/heroes/surgery.png",
+      "headlineBefore": "Surgery Fellowship Programs for Doctors ",
+      "headlineHighlight": "Ready to Go Further",
+      "subheadline": "Build Confidence in the Operating Theatre.",
+      "heroDescription": "Supervised scrubbing, peri-operative care and stepwise surgical skill building at high OT volume centres."
+    }
+  ],
+  "whyChoose": [
+    {
+      "id": "clinical",
+      "title": "Clinical Exposure",
+      "description": "Train in real hospital environments with supervised patient care, procedures, and case discussions.",
+      "icon": "local_hospital"
+    },
+    {
+      "id": "mentorship",
+      "title": "Expert Mentorship",
+      "description": "Learn directly from experienced specialists and department heads at partner hospitals.",
+      "icon": "psychology"
+    },
+    {
+      "id": "structured",
+      "title": "Structured Learning",
+      "description": "Curriculum-driven modules combining bedside teaching, lectures, and assessments.",
+      "icon": "auto_stories"
+    },
+    {
+      "id": "career",
+      "title": "Career Advancement",
+      "description": "CPD-accredited certification and hospital partnerships that strengthen your clinical profile.",
+      "icon": "trending_up"
+    }
+  ],
+  "programs": [
+    {
+      "id": "interventional-cardiology",
+      "specialtyId": "cardiology",
+      "title": "Interventional Cardiology Fellowship",
+      "duration": "12 Months",
+      "location": "Mumbai",
+      "hospital": "Apex Heart Institute",
+      "image": "/assets/fellowship/programs/cardiology.png",
+      "isPopular": true,
+      "featured": true,
+      "overview": "A comprehensive interventional cardiology fellowship designed for MD/DNB Cardiology aspirants seeking advanced cath lab skills, complex PCI exposure, and structured mentorship at a high-volume cardiac centre.",
+      "eligibility": [
+        "MD / DNB in General Medicine or Cardiology",
+        "Valid medical registration in India",
+        "Prior clinical experience preferred"
+      ],
+      "curriculum": [
+        "Coronary angiography & angioplasty",
+        "Complex PCI & CTO basics",
+        "Hemodynamic assessment",
+        "Cardiac ICU protocols",
+        "Case presentations & journal clubs"
+      ],
+      "highlights": [
+        "Hands-on cath lab exposure",
+        "Stipend for 12-month track",
+        "CPD-accredited certificate",
+        "Mentor-led case reviews"
+      ],
+      "fee": "Contact for details",
+      "stipend": "Available for 6 & 12 month tracks"
+    },
+    {
+      "id": "clinical-cardiology",
+      "specialtyId": "cardiology",
+      "title": "Clinical Cardiology Fellowship",
+      "duration": "6 Months",
+      "location": "Delhi",
+      "hospital": "Fortis Healthcare",
+      "image": "/assets/fellowship/programs/cardiology.png",
+      "isPopular": false,
+      "featured": false,
+      "overview": "Clinical cardiology fellowship focused on wards, CCU, echo basics and evidence-based cardiac care pathways.",
+      "eligibility": [
+        "MD / DNB Medicine or Cardiology",
+        "Valid medical registration"
+      ],
+      "curriculum": [
+        "CCU protocols",
+        "Echo basics",
+        "Heart failure pathways",
+        "ECG mastery",
+        "Case discussions"
+      ],
+      "highlights": [
+        "CCU rotations",
+        "Mentor feedback",
+        "CPD certificate",
+        "Flexible 6-month module"
+      ],
+      "fee": "Contact for details",
+      "stipend": "Available for select tracks"
+    },
+    {
+      "id": "neonatal-intensive-care",
+      "specialtyId": "pediatrics",
+      "title": "Neonatal Intensive Care Fellowship",
+      "duration": "6 Months",
+      "location": "Bangalore",
+      "hospital": "Manipal Hospitals",
+      "image": "/assets/fellowship/programs/neonatal.png",
+      "isPopular": false,
+      "featured": true,
+      "overview": "Immersive NICU fellowship covering ventilator management, neonatal resuscitation, and care of extreme preterm infants under experienced neonatologists.",
+      "eligibility": [
+        "MD / DNB Pediatrics",
+        "Valid medical registration",
+        "Interest in neonatology practice"
+      ],
+      "curriculum": [
+        "Neonatal resuscitation (NRP)",
+        "Invasive & non-invasive ventilation",
+        "Parenteral nutrition",
+        "Infection control in NICU",
+        "Neurodevelopmental follow-up"
+      ],
+      "highlights": [
+        "Level-III NICU exposure",
+        "Procedure-focused training",
+        "Hospital-endorsed certificate",
+        "Flexible 6-month module"
+      ],
+      "fee": "Contact for details",
+      "stipend": "Available for 6-month track"
+    },
+    {
+      "id": "pediatric-critical-care",
+      "specialtyId": "pediatrics",
+      "title": "Pediatric Critical Care Fellowship",
+      "duration": "12 Months",
+      "location": "Chennai",
+      "hospital": "Apollo Hospitals",
+      "image": "/assets/fellowship/programs/neonatal.png",
+      "isPopular": false,
+      "featured": false,
+      "overview": "Pediatric ICU fellowship with ventilator strategies, shock protocols and multidisciplinary case management.",
+      "eligibility": [
+        "MD / DNB Pediatrics",
+        "Valid medical registration"
+      ],
+      "curriculum": [
+        "Pediatric ventilation",
+        "Shock & sepsis",
+        "Procedural skills",
+        "Family counselling",
+        "Simulation drills"
+      ],
+      "highlights": [
+        "PICU rotations",
+        "Simulation training",
+        "CPD accreditation",
+        "Career guidance"
+      ],
+      "fee": "Contact for details",
+      "stipend": "Available for 12-month track"
+    },
+    {
+      "id": "critical-care-medicine",
+      "specialtyId": "critical-care",
+      "title": "Critical Care Medicine Fellowship",
+      "duration": "12 Months",
+      "location": "Delhi",
+      "hospital": "Fortis Healthcare",
+      "image": "/assets/fellowship/programs/critical-care.png",
+      "isPopular": false,
+      "featured": true,
+      "overview": "Rigorous critical care fellowship focused on multi-organ support, emergency protocols, and evidence-based ICU practice across medical and surgical ICUs.",
+      "eligibility": [
+        "MD / DNB in Medicine, Anaesthesia, Pulmonology or Emergency Medicine",
+        "Valid medical registration",
+        "ICU experience preferred"
+      ],
+      "curriculum": [
+        "Airway & ventilator management",
+        "Sepsis & shock protocols",
+        "Renal replacement therapy basics",
+        "Point-of-care ultrasound",
+        "Ethics & end-of-life care"
+      ],
+      "highlights": [
+        "Multi-specialty ICU rotations",
+        "Simulation-based training",
+        "CPD accreditation",
+        "Career guidance support"
+      ],
+      "fee": "Contact for details",
+      "stipend": "Available for 12-month track"
+    },
+    {
+      "id": "emergency-critical-care",
+      "specialtyId": "critical-care",
+      "title": "Emergency & Critical Care Fellowship",
+      "duration": "6 Months",
+      "location": "Hyderabad",
+      "hospital": "Aster Hospitals",
+      "image": "/assets/fellowship/programs/critical-care.png",
+      "isPopular": false,
+      "featured": false,
+      "overview": "Emergency-focused critical care module for rapid decision making, triage and acute resuscitation skills.",
+      "eligibility": [
+        "MD / DNB / equivalent in relevant specialty",
+        "Valid medical registration"
+      ],
+      "curriculum": [
+        "Triage protocols",
+        "Airway emergencies",
+        "Trauma basics",
+        "Shock management",
+        "Team leadership"
+      ],
+      "highlights": [
+        "ER + ICU exposure",
+        "Hands-on drills",
+        "Certificate",
+        "Flexible duration"
+      ],
+      "fee": "Contact for details",
+      "stipend": "Available for select tracks"
+    },
+    {
+      "id": "diagnostic-radiology",
+      "specialtyId": "radiology",
+      "title": "Diagnostic Radiology Fellowship",
+      "duration": "6 Months",
+      "location": "Chennai",
+      "hospital": "Apollo Hospitals",
+      "image": "/assets/fellowship/programs/radiology.png",
+      "isPopular": false,
+      "featured": false,
+      "overview": "Structured radiology fellowship emphasising CT/MRI reporting, ultrasound, and interventional basics with daily case reporting under senior consultants.",
+      "eligibility": [
+        "MD / DNB Radiology",
+        "Valid medical registration"
+      ],
+      "curriculum": [
+        "Cross-sectional imaging",
+        "Musculoskeletal MRI",
+        "Abdominal CT protocols",
+        "Ultrasound-guided procedures",
+        "Reporting standards & audits"
+      ],
+      "highlights": [
+        "High case volume",
+        "Workstation-based training",
+        "Mentor feedback loops",
+        "Partner hospital certificate"
+      ],
+      "fee": "Contact for details",
+      "stipend": "Not applicable for 6-month observer track"
+    },
+    {
+      "id": "joint-replacement",
+      "specialtyId": "orthopaedics",
+      "title": "Joint Replacement Fellowship",
+      "duration": "6 Months",
+      "location": "Hyderabad",
+      "hospital": "Aster Hospitals",
+      "image": "/assets/fellowship/programs/orthopaedics.png",
+      "isPopular": false,
+      "featured": false,
+      "overview": "Orthopaedic fellowship centred on primary and revision arthroplasty, peri-operative care, and surgical technique refinement.",
+      "eligibility": [
+        "MS / DNB Orthopaedics",
+        "Valid medical registration"
+      ],
+      "curriculum": [
+        "Primary TKR & THR",
+        "Pre-op planning",
+        "Infection prevention",
+        "Rehab protocols",
+        "Complication management"
+      ],
+      "highlights": [
+        "OT scrubbing opportunities",
+        "Surgical mentorship",
+        "CPD certificate",
+        "Career support"
+      ],
+      "fee": "Contact for details",
+      "stipend": "Available for select tracks"
+    },
+    {
+      "id": "advanced-obgyn",
+      "specialtyId": "obgyn",
+      "title": "Advanced Obstetrics & Gynaecology Fellowship",
+      "duration": "6 Weeks",
+      "location": "Hyderabad",
+      "hospital": "KIMS Hospitals",
+      "image": "/assets/fellowship/programs/obgyn.png",
+      "isPopular": false,
+      "featured": false,
+      "overview": "Short intensive OBGYN fellowship covering high-risk obstetrics, laparoscopy fundamentals, and structured clinical mentorship.",
+      "eligibility": [
+        "MD / MS / DNB in Obstetrics & Gynaecology",
+        "Practicing gynaecologists welcome"
+      ],
+      "curriculum": [
+        "High-risk pregnancy management",
+        "Laparoscopic basics",
+        "Emergency obstetric care",
+        "Case-based discussions",
+        "Simulation sessions"
+      ],
+      "highlights": [
+        "6-week intensive format",
+        "Hands-on simulations",
+        "Hospital certificate",
+        "Admission support"
+      ],
+      "fee": "\u20b91,50,000 + 18% GST",
+      "stipend": "Not applicable for short modules"
+    },
+    {
+      "id": "internal-medicine-fellowship",
+      "specialtyId": "internal-medicine",
+      "title": "Fellowship in Internal Medicine",
+      "duration": "12 Months",
+      "location": "Delhi NCR",
+      "hospital": "MAX Healthcare",
+      "image": "/assets/fellowship/programs/internal-medicine.png",
+      "isPopular": false,
+      "featured": false,
+      "overview": "Year-long internal medicine fellowship combining ward rounds, emergency modules, and specialist case studies for confident adult disease management.",
+      "eligibility": [
+        "MD / DNB Internal Medicine or equivalent",
+        "Valid medical registration"
+      ],
+      "curriculum": [
+        "Complex adult disease management",
+        "Emergency medicine modules",
+        "Case studies & grand rounds",
+        "Evidence-based protocols",
+        "Communication & documentation"
+      ],
+      "highlights": [
+        "Partner hospital training",
+        "Expert lectures",
+        "CPD accreditation",
+        "Career advancement support"
+      ],
+      "fee": "Contact for details",
+      "stipend": "Available for 12-month track"
+    },
+    {
+      "id": "general-surgery",
+      "specialtyId": "surgery",
+      "title": "General Surgery Fellowship",
+      "duration": "6 Months",
+      "location": "Chennai",
+      "hospital": "Kauvery Hospital",
+      "image": "/assets/fellowship/programs/surgery.png",
+      "isPopular": false,
+      "featured": false,
+      "overview": "Surgical fellowship offering supervised OT exposure, peri-operative care, and stepwise skill building in general surgery.",
+      "eligibility": [
+        "MS / DNB General Surgery",
+        "Valid medical registration"
+      ],
+      "curriculum": [
+        "Open & laparoscopic basics",
+        "Trauma protocols",
+        "Wound & infection care",
+        "OT etiquette & safety",
+        "Post-op management"
+      ],
+      "highlights": [
+        "Supervised scrubbing",
+        "High OT volume centres",
+        "Mentor feedback",
+        "Completion certificate"
+      ],
+      "fee": "Contact for details",
+      "stipend": "Available for select tracks"
+    }
+  ],
+  "partners": [
+    {
+      "id": "aiims",
+      "name": "AIIMS",
+      "logo": "/assets/fellowship/partners/aiims.png"
+    },
+    {
+      "id": "apollo",
+      "name": "Apollo",
+      "logo": "/assets/fellowship/partners/apollo.png"
+    },
+    {
+      "id": "manipal",
+      "name": "Manipal",
+      "logo": "/assets/fellowship/partners/manipal.png"
+    },
+    {
+      "id": "fortis",
+      "name": "Fortis",
+      "logo": "/assets/fellowship/partners/fortis.png"
+    },
+    {
+      "id": "aster",
+      "name": "Aster",
+      "logo": "/assets/fellowship/partners/aster.png"
+    },
+    {
+      "id": "max",
+      "name": "MAX",
+      "logo": "/assets/fellowship/partners/max.png"
+    },
+    {
+      "id": "kauvery",
+      "name": "Kauvery",
+      "logo": "/assets/fellowship/partners/kauvery.png"
+    },
+    {
+      "id": "hcg",
+      "name": "HCG",
+      "logo": "/assets/fellowship/partners/hcg.png"
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "t1",
+      "name": "Dr. Ananya Sharma",
+      "role": "Fellowship in Critical Care",
+      "quote": "The fellowship gave me invaluable clinical exposure and mentorship that transformed my practice.",
+      "avatar": "/assets/fellowship/testimonials/doctor1.png"
+    },
+    {
+      "id": "t2",
+      "name": "Dr. Rohan Mehta",
+      "role": "Interventional Cardiology Fellowship",
+      "quote": "Hands-on cath lab exposure with senior guidance gave me the confidence I needed for independent practice.",
+      "avatar": "/assets/fellowship/testimonials/doctor2.png"
+    },
+    {
+      "id": "t3",
+      "name": "Dr. Priya Nair",
+      "role": "Neonatal Intensive Care Fellowship",
+      "quote": "From ventilation protocols to family counselling \u2014 every week added real clinical depth to my neonatology skills.",
+      "avatar": "/assets/fellowship/testimonials/doctor3.png"
+    }
+  ],
+  "footerCta": {
+    "headline": "READY TO ADVANCE YOUR CAREER?",
+    "subheadline": "Get Personalised Guidance on Fellowship Programs.",
+    "buttonLabel": "Talk to an Expert",
+    "image": "/assets/fellowship/cta-surgery.png",
+    "trustPoints": [
+      {
+        "id": "guidance",
+        "label": "Expert Guidance",
+        "icon": "support_agent"
+      },
+      {
+        "id": "details",
+        "label": "Program Details",
+        "icon": "description"
+      },
+      {
+        "id": "admission",
+        "label": "Admission Support",
+        "icon": "how_to_reg"
+      }
+    ],
+    "waveBg": "/assets/fellowship/footer-wave-bg.png"
+  },
+  "sections": {
+    "specialties": {
+      "title": "Explore Fellowships by Speciality",
+      "subtitle": "Choose your focus area and discover clinically oriented programs built for practising doctors."
+    },
+    "whyChoose": {
+      "title": "Why Choose DocTutorials Fellowship?",
+      "subtitle": "A learning experience designed around real clinical practice, mentorship, and measurable career growth."
+    },
+    "featured": {
+      "title": "Featured Fellowship Programs",
+      "viewAll": "View All Programs"
+    },
+    "partners": {
+      "title": "Our Partner Hospitals",
+      "viewAll": "View All Partner Hospitals"
+    },
+    "testimonials": {
+      "title": "What Doctors Say"
+    }
+  }
+}
