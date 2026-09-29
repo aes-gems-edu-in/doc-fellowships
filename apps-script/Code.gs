@@ -15,17 +15,15 @@ var SPREADSHEET_ID = "1EsXz8_D4vF38tZPdZgHOnyICVSRUeFU5Fu0Fbhd8E8s";
 var SHEET_NAME = "fellowship";
 
 var HEADERS = [
-  "Timestamp",
   "Full Name",
   "Phone",
   "Email",
   "Specialty",
   "City",
-  "Source",
+  "Date",
 ];
 
 function doGet(e) {
-  // Allow simple GET test + optional query-param save backup
   try {
     if (e && e.parameter && e.parameter.fullName) {
       saveLead_(e.parameter);
@@ -44,7 +42,6 @@ function doPost(e) {
   try {
     var data = parseRequest_(e);
     saveLead_(data);
-    // HtmlService avoids ContentService 302 redirect issues with browser no-cors
     return htmlOk_("Lead saved");
   } catch (err) {
     return htmlOk_("ERROR: " + (err && err.message ? err.message : err));
@@ -63,37 +60,49 @@ function saveLead_(data) {
   var email = String((data && data.email) || "").trim();
   var specialty = String((data && data.specialty) || "").trim();
   var city = String((data && data.city) || "").trim();
-  var source = String((data && data.source) || "fellowship-website").trim();
 
   if (!fullName || !phone || !email || !specialty) {
     throw new Error("Missing required fields");
   }
 
   var sheet = getOrCreateTab_();
+  var now = new Date();
+
   sheet.appendRow([
-    new Date(),
     fullName,
     phone.indexOf("+") === 0 ? phone : "+91" + phone,
     email,
     specialty,
     city || "-",
-    source,
+    now,
   ]);
+
+  // Format last column (Date) as dd/MM/yyyy HH:mm
+  var row = sheet.getLastRow();
+  var dateCell = sheet.getRange(row, HEADERS.length);
+  dateCell.setNumberFormat("dd/MM/yyyy HH:mm");
+  dateCell.setValue(now);
 }
 
 function getOrCreateTab_() {
   var ss = SpreadsheetApp.openById(SPREADSHEET_ID);
   var sheet = ss.getSheetByName(SHEET_NAME);
 
+  // If fellowship tab missing, use the first sheet (after Sheet1 removed)
   if (!sheet) {
-    sheet = ss.insertSheet(SHEET_NAME);
+    sheet = ss.getSheets()[0] || ss.insertSheet(SHEET_NAME);
+    try {
+      sheet.setName(SHEET_NAME);
+    } catch (err) {
+      // name already exists / cannot rename
+    }
   }
 
-  // Only write headers if the sheet is completely empty
   if (sheet.getLastRow() === 0) {
     sheet.appendRow(HEADERS);
     sheet.getRange(1, 1, 1, HEADERS.length).setFontWeight("bold");
     sheet.setFrozenRows(1);
+    sheet.getRange("F:F").setNumberFormat("dd/MM/yyyy HH:mm");
   } else {
     var first = String(sheet.getRange(1, 1).getValue() || "");
     if (first !== HEADERS[0]) {
@@ -102,6 +111,7 @@ function getOrCreateTab_() {
       sheet.getRange(1, 1, 1, HEADERS.length).setFontWeight("bold");
       sheet.setFrozenRows(1);
     }
+    sheet.getRange("F:F").setNumberFormat("dd/MM/yyyy HH:mm");
   }
 
   return sheet;
@@ -124,7 +134,7 @@ function parseRequest_(e) {
         out[key] = json[key];
       });
     } catch (err) {
-      // application/x-www-form-urlencoded already in e.parameter
+      // form-urlencoded already in e.parameter
     }
   }
 

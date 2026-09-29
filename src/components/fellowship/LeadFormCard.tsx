@@ -155,7 +155,6 @@ export default function LeadFormCard({ defaultSpecialty = "" }: LeadFormCardProp
       email: form.email.trim(),
       specialty: specialtyName,
       city: form.city.trim(),
-      source: "fellowship-website",
     };
 
     const scriptUrl = process.env.REACT_APP_APPS_SCRIPT_URL?.trim();
@@ -163,14 +162,12 @@ export default function LeadFormCard({ defaultSpecialty = "" }: LeadFormCardProp
 
     try {
       if (scriptUrl) {
-        // form-urlencoded is most reliable with Apps Script e.parameter + no-cors
         const body = new URLSearchParams({
           fullName: payload.fullName,
           phone: payload.phone,
           email: payload.email,
           specialty: payload.specialty,
           city: payload.city,
-          source: payload.source,
         }).toString();
 
         await Promise.all([
