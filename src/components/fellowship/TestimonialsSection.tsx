@@ -32,7 +32,7 @@ export default function TestimonialsSection() {
 
   return (
     <Box sx={{ py: { xs: 5, md: 7 }, bgcolor: "#FFFFFF" }}>
-      <Container maxWidth="lg">
+      <Container maxWidth="xl" sx={{ maxWidth: "95%" }}>
         <Stack
           direction="row"
           justifyContent="space-between"
@@ -94,7 +94,7 @@ export default function TestimonialsSection() {
                     <Avatar
                       src={item.avatar}
                       alt={item.name}
-                      sx={{ width: 56, height: 56, flexShrink: 0, border: "2px solid #E8F1FF" }}
+                      sx={{ width: 100, height: 100, flexShrink: 0, border: "2px solid #E8F1FF" }}
                     />
                     <Box sx={{ flex: 1, minWidth: 0 }}>
                       <FormatQuoteIcon sx={{ color: "#0056D2", fontSize: 26, mb: 0.5 }} />

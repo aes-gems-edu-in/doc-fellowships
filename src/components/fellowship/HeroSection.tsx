@@ -6,9 +6,10 @@ import type { Specialty } from "../../types/fellowship";
 
 interface HeroSectionProps {
   specialty?: Specialty | null;
+  onHomeClick?: () => void;
 }
 
-export default function HeroSection({ specialty = null }: HeroSectionProps) {
+export default function HeroSection({ specialty = null, onHomeClick }: HeroSectionProps) {
   const { brand, hero } = masterData;
 
   const headlineBefore = specialty?.headlineBefore || hero.headlineBefore;
@@ -79,35 +80,67 @@ export default function HeroSection({ specialty = null }: HeroSectionProps) {
       />
 
       <Container
-        maxWidth="lg"
+        maxWidth="xl"
         sx={{
           position: "relative",
           zIndex: 2,
           height: { md: "100%" },
           display: "flex",
           flexDirection: "column",
-          pt: { xs: 2, md: 2.5 },
-          pb: { xs: 4, md: 4 },
+          justifyContent: { md: "center" },
+          pt: { xs: 7, md: 0 },
+          pb: { xs: 4, md: 0 },
+          maxWidth: "95%",
         }}
       >
-        <Stack direction="row" alignItems="center" spacing={1.1} sx={{ mb: { xs: 2.5, md: 2.5 }, flexShrink: 0 }}>
-          <Box component="img" src={brand.logo} alt={brand.name} sx={{ width: 34, height: 34 }} />
-          <Typography sx={{ fontWeight: 800, fontSize: 14, letterSpacing: "0.08em", color: "#0B1F3A" }}>
-            {brand.name}
-          </Typography>
-        </Stack>
+        {/* Logo overlay — click returns to homepage */}
+        <Box
+          component="button"
+          type="button"
+          onClick={onHomeClick}
+          aria-label="Go to homepage"
+          sx={{
+            position: "absolute",
+            top: { xs: 14, md: 20 },
+            left: { xs: 8, md: 16 },
+            zIndex: 4,
+            p: 0,
+            m: 0,
+            border: "none",
+            background: "none",
+            cursor: "pointer",
+            lineHeight: 0,
+            display: "inline-flex",
+            "&:hover": { opacity: 0.88 },
+            "&:focus-visible": {
+              outline: "2px solid #0056D2",
+              outlineOffset: 4,
+              borderRadius: 1,
+            },
+          }}
+        >
+          <Box
+            component="img"
+            src={brand.logo}
+            alt={brand.name}
+            sx={{
+              width: { xs: 64, md: 100 },
+              height: "auto",
+              display: "block",
+            }}
+          />
+        </Box>
 
         <Box
           sx={{
             display: "grid",
-            gridTemplateColumns: { xs: "1fr", md: "1fr minmax(320px, 400px)" },
+            gridTemplateColumns: { xs: "1fr", md: "1fr minmax(320px, 800px)" },
             gap: { xs: 3, md: 4 },
             alignItems: { xs: "start", md: "center" },
-            flex: { md: 1 },
             minHeight: 0,
           }}
         >
-          <Box sx={{ maxWidth: 480, pt: { md: 1 }, position: "relative", zIndex: 3 }}>
+          <Box sx={{ maxWidth: 600, pt: { md: 1 }, position: "relative", zIndex: 3 }}>
             <Typography
               sx={{
                 color: "#0056D2",
@@ -125,7 +158,7 @@ export default function HeroSection({ specialty = null }: HeroSectionProps) {
               sx={{
                 fontWeight: 800,
                 color: "#0B1F3A",
-                fontSize: { xs: "1.7rem", sm: "2.1rem", md: "2.4rem", lg: "2.55rem" },
+                fontSize: { xs: "1.7rem", sm: "2.1rem", md: "2.4rem", lg: "3.4rem" },
                 lineHeight: 1.15,
                 mb: 1.5,
                 letterSpacing: "-0.02em",
@@ -166,24 +199,51 @@ export default function HeroSection({ specialty = null }: HeroSectionProps) {
               </Typography>
             </Box>
 
-            <Stack
-              direction="row"
-              flexWrap="wrap"
-              useFlexGap
-              spacing={{ xs: 2, md: 2.5 }}
-              alignItems="center"
-              sx={{ mb: 2 }}
+            <Box
+              sx={{
+                display: "inline-flex",
+                alignItems: "stretch",
+                flexWrap: "wrap",
+                maxWidth: "100%",
+                mb: 2.25,
+                px: { xs: 0.75, md: 1 },
+                py: { xs: 1, md: 1.15 },
+                borderRadius: "14px",
+                bgcolor: "rgba(255,255,255,0.18)",
+                border: "1px solid rgba(255,255,255,0.28)",
+                boxShadow: "0 8px 28px rgba(15, 40, 80, 0.06)",
+                backdropFilter: "blur(14px)",
+                WebkitBackdropFilter: "blur(14px)",
+              }}
             >
-              {hero.stats.map((stat) => {
+              {hero.stats.map((stat, index) => {
                 const Icon = getIcon(stat.icon);
                 return (
-                  <Stack key={stat.id} direction="row" spacing={0.9} alignItems="center">
+                  <Stack
+                    key={stat.id}
+                    alignItems="center"
+                    spacing={0.75}
+                    sx={{
+                      minWidth: { xs: 72, md: 88 },
+                      px: { xs: 1.1, md: 1.5 },
+                      py: 0.5,
+                      borderRight: {
+                        xs: "none",
+                        sm:
+                          index < hero.stats.length - 1
+                            ? "1px solid rgba(0,86,210,0.12)"
+                            : "none",
+                      },
+                    }}
+                  >
                     <Box
                       sx={{
-                        width: 34,
-                        height: 34,
-                        borderRadius: "50%",
-                        bgcolor: "rgba(232,241,255,0.95)",
+                        width: 36,
+                        height: 36,
+                        borderRadius: "10px",
+                        background:
+                          "linear-gradient(145deg, rgba(0,86,210,0.12) 0%, rgba(0,86,210,0.04) 100%)",
+                        border: "1px solid rgba(0,86,210,0.1)",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -191,22 +251,48 @@ export default function HeroSection({ specialty = null }: HeroSectionProps) {
                     >
                       <Icon sx={{ color: "#0056D2", fontSize: 18 }} />
                     </Box>
-                    <Typography sx={{ fontSize: 12.5, fontWeight: 700, color: "#0B1F3A" }}>
+                    <Box sx={{ textAlign: "center" }}>
                       {stat.value ? (
                         <>
-                          <Box component="span" sx={{ color: "#0056D2" }}>
+                          <Typography
+                            sx={{
+                              fontSize: 13,
+                              fontWeight: 800,
+                              color: "#0056D2",
+                              lineHeight: 1.15,
+                              letterSpacing: "-0.01em",
+                            }}
+                          >
                             {stat.value}
-                          </Box>{" "}
-                          {stat.label}
+                          </Typography>
+                          <Typography
+                            sx={{
+                              fontSize: 10.5,
+                              fontWeight: 600,
+                              color: "#5A6B80",
+                              lineHeight: 1.25,
+                            }}
+                          >
+                            {stat.label}
+                          </Typography>
                         </>
                       ) : (
-                        stat.label
+                        <Typography
+                          sx={{
+                            fontSize: 11.5,
+                            fontWeight: 700,
+                            color: "#0B1F3A",
+                            lineHeight: 1.25,
+                          }}
+                        >
+                          {stat.label}
+                        </Typography>
                       )}
-                    </Typography>
+                    </Box>
                   </Stack>
                 );
               })}
-            </Stack>
+            </Box>
 
             <Stack
               direction="row"

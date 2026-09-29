@@ -7,7 +7,7 @@ export default function WhyChooseSection() {
 
   return (
     <Box sx={{ py: { xs: 6, md: 8 }, bgcolor: "#F7FAFF" }}>
-      <Container maxWidth="lg">
+      <Container maxWidth="xl" sx={{ maxWidth: "95%" }}>
         <Box sx={{ textAlign: "center", mb: 4.5 }}>
           <Typography
             sx={{

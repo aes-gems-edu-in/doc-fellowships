@@ -45,7 +45,7 @@
   },
   "leadForm": {
     "eyebrow": "TAKE THE NEXT STEP",
-    "title": "Find the Right Fellowship for Your Career",
+    "title": "Find the Right\nFellowship for Your Career",
     "subtitle": "Get personalised guidance from our academic team and find the best program for your goals.",
     "submitLabel": "Get Program Details",
     "fields": {
@@ -612,7 +612,7 @@
   ],
   "footerCta": {
     "headline": "READY TO ADVANCE YOUR CAREER?",
-    "subheadline": "Get Personalised Guidance on Fellowship Programs.",
+    "subheadline": "Get Personalised Guidance\non Fellowship Programs.",
     "buttonLabel": "Talk to an Expert",
     "image": "/assets/fellowship/cta-surgery.png",
     "trustPoints": [

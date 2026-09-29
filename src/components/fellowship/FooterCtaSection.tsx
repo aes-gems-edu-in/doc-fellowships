@@ -28,7 +28,7 @@ export default function FooterCtaSection({ onTalkToExpert }: FooterCtaSectionPro
         pb: { xs: 3, md: 4 },
       }}
     >
-      <Container maxWidth="lg" disableGutters>
+      <Container maxWidth="xl" sx={{ maxWidth: "100%" }}>
         <Box
           sx={{
             position: "relative",
@@ -39,7 +39,7 @@ export default function FooterCtaSection({ onTalkToExpert }: FooterCtaSectionPro
             boxShadow: "0 12px 40px rgba(0, 62, 153, 0.22)",
           }}
         >
-          {/* Left surgery image — left side only */}
+          {/* Left column — surgery image bg */}
           <Box
             sx={{
               display: { xs: "none", md: "block" },
@@ -56,7 +56,6 @@ export default function FooterCtaSection({ onTalkToExpert }: FooterCtaSectionPro
             }}
           />
 
-          {/* Fade surgery image into solid blue */}
           <Box
             sx={{
               display: { xs: "none", md: "block" },
@@ -72,7 +71,6 @@ export default function FooterCtaSection({ onTalkToExpert }: FooterCtaSectionPro
             }}
           />
 
-          {/* Soft wave pattern — right side only */}
           {waveBg && (
             <Box
               sx={{
@@ -97,44 +95,52 @@ export default function FooterCtaSection({ onTalkToExpert }: FooterCtaSectionPro
             sx={{
               position: "relative",
               zIndex: 2,
-              pl: { xs: 2.5, sm: 3.5, md: "30%", lg: "28%" },
+              pl: { xs: 2.5, sm: 3.5, md: "30%", lg: "24%" },
               pr: { xs: 2.5, sm: 3.5, md: 4, lg: 5 },
-              py: { xs: 3.25, md: 3.75 },
+              py: { xs: 3.25, md: 3.5 },
+              display: "grid",
+              gridTemplateColumns: { xs: "1fr", md: "1.2fr 0.85fr" },
+              gap: { xs: 3, md: 4 },
+              alignItems: "center",
+              minHeight: { md: 220 },
             }}
           >
-            {/* Row 1 — headline + CTA */}
-            <Stack
-              direction={{ xs: "column", md: "row" }}
-              spacing={{ xs: 2.5, md: 3 }}
-              alignItems={{ xs: "stretch", md: "center" }}
-              justifyContent="space-between"
-            >
-              <Box sx={{ flex: 1, minWidth: 0, maxWidth: { md: 560 } }}>
-                <Typography
-                  sx={{
-                    color: "#fff",
-                    fontWeight: 800,
-                    fontSize: { xs: "1.05rem", md: "1.25rem", lg: "1.35rem" },
-                    letterSpacing: "0.04em",
-                    lineHeight: 1.3,
-                    mb: 0.6,
-                    textTransform: "uppercase",
-                  }}
-                >
-                  {footerCta.headline}
-                </Typography>
-                <Typography
-                  sx={{
-                    color: "rgba(255,255,255,0.95)",
-                    fontWeight: 600,
-                    fontSize: { xs: 15, md: 17, lg: 18 },
-                    lineHeight: 1.4,
-                  }}
-                >
-                  {footerCta.subheadline}
-                </Typography>
-              </Box>
+            {/* Center column — headline */}
+            <Box sx={{ minWidth: 0 }}>
+              <Typography
+                sx={{
+                  color: "rgba(255,255,255,0.92)",
+                  fontWeight: 700,
+                  fontSize: { xs: 12, md: 13, lg: 14 },
+                  letterSpacing: "0.08em",
+                  lineHeight: 1.35,
+                  mb: 1,
+                  textTransform: "uppercase",
+                }}
+              >
+                {footerCta.headline}
+              </Typography>
+              <Typography
+                sx={{
+                  color: "#fff",
+                  fontWeight: 800,
+                  fontSize: { xs: "1.35rem", md: "1.7rem", lg: "1.95rem" },
+                  lineHeight: 1.25,
+                  letterSpacing: "-0.01em",
+                  maxWidth: 520,
+                  whiteSpace: "pre-line",
+                }}
+              >
+                {footerCta.subheadline}
+              </Typography>
+            </Box>
 
+            {/* Last column — button + trust points */}
+            <Stack
+              spacing={2.25}
+              alignItems="center"
+              sx={{ justifySelf: { md: "end" }, width: { xs: "100%", md: "auto" } }}
+            >
               <Button
                 variant="contained"
                 endIcon={<ArrowForwardIcon />}
@@ -151,38 +157,40 @@ export default function FooterCtaSection({ onTalkToExpert }: FooterCtaSectionPro
                   boxShadow: "0 6px 18px rgba(0,0,0,0.12)",
                   "&:hover": { bgcolor: "#F0F6FF" },
                   whiteSpace: "nowrap",
-                  flexShrink: 0,
-                  alignSelf: { xs: "stretch", sm: "flex-start", md: "center" },
                 }}
               >
                 {footerCta.buttonLabel}
               </Button>
-            </Stack>
 
-            {/* Row 2 — trust points */}
-            <Stack
-              direction="row"
-              spacing={{ xs: 2, md: 4 }}
-              flexWrap="wrap"
-              useFlexGap
-              sx={{
-                mt: { xs: 2.75, md: 3 },
-                pt: { xs: 2.25, md: 2.5 },
-                borderTop: "1px solid rgba(255,255,255,0.22)",
-                justifyContent: { xs: "flex-start", md: "flex-start" },
-              }}
-            >
-              {footerCta.trustPoints.map((point) => {
-                const Icon = getIcon(point.icon);
-                return (
-                  <Stack key={point.id} direction="row" spacing={1} alignItems="center">
-                    <Icon sx={{ color: "#fff", fontSize: 20 }} />
-                    <Typography sx={{ color: "#fff", fontSize: 13, fontWeight: 500 }}>
-                      {point.label}
-                    </Typography>
-                  </Stack>
-                );
-              })}
+              <Stack
+                direction="row"
+                spacing={{ xs: 1.25, md: 2 }}
+                flexWrap="nowrap"
+                alignItems="center"
+                sx={{
+                  whiteSpace: "nowrap",
+                  overflowX: { xs: "auto", md: "visible" },
+                  pb: { xs: 0.25, md: 0 },
+                }}
+              >
+                {footerCta.trustPoints.map((point) => {
+                  const Icon = getIcon(point.icon);
+                  return (
+                    <Stack
+                      key={point.id}
+                      direction="row"
+                      spacing={0.75}
+                      alignItems="center"
+                      sx={{ flexShrink: 0 }}
+                    >
+                      <Icon sx={{ color: "#fff", fontSize: 17 }} />
+                      <Typography sx={{ color: "#fff", fontSize: 12.5, fontWeight: 500 }}>
+                        {point.label}
+                      </Typography>
+                    </Stack>
+                  );
+                })}
+              </Stack>
             </Stack>
           </Box>
         </Box>

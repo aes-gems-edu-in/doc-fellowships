@@ -34,7 +34,7 @@ export default function LandingPage({
 }: LandingPageProps) {
   return (
     <Box component="main">
-      <HeroSection specialty={specialty} />
+      <HeroSection specialty={specialty} onHomeClick={onClearSpecialty} />
       <SpecialtiesSection
         selectedSpecialtyId={specialtyId}
         onViewPrograms={onViewPrograms}

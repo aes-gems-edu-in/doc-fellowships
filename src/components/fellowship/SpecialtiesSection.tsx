@@ -24,7 +24,7 @@ export default function SpecialtiesSection({
 
   return (
     <Box sx={{ py: { xs: 6, md: 8 }, bgcolor: "#FFFFFF" }}>
-      <Container maxWidth="lg">
+      <Container maxWidth="xl" sx={{ maxWidth: "95%" }}>
         <Box sx={{ textAlign: "center", mb: 4.5 }}>
           <Typography
             sx={{

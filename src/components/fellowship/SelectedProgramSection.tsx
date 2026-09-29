@@ -35,7 +35,7 @@ export default function SelectedProgramSection({
 }: Props) {
   return (
     <Box sx={{ py: { xs: 4, md: 6 }, bgcolor: "#F7FAFF" }}>
-      <Container maxWidth="lg">
+      <Container maxWidth="xl" sx={{ maxWidth: "95%" }}>
         <Stack
           direction={{ xs: "column", sm: "row" }}
           justifyContent="space-between"

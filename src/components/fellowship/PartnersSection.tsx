@@ -8,7 +8,7 @@ export default function PartnersSection() {
 
   return (
     <Box sx={{ py: { xs: 5, md: 6.5 }, bgcolor: "#FFFFFF" }}>
-      <Container maxWidth="lg">
+      <Container maxWidth="xl" sx={{ maxWidth: "95%" }}>
         <Stack
           direction="row"
           justifyContent="space-between"
@@ -57,8 +57,8 @@ export default function PartnersSection() {
               src={partner.logo}
               alt={partner.name}
               sx={{
-                height: 44,
-                width: { xs: "42%", sm: 118 },
+                height: { xs: 80, md: 100 },
+                width: { xs: "42%", sm: 130 },
                 objectFit: "contain",
                 opacity: 0.85,
               }}
