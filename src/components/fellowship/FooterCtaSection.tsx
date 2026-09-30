@@ -23,7 +23,7 @@ export default function FooterCtaSection({ onTalkToExpert }: FooterCtaSectionPro
     <Box
       sx={{
         bgcolor: "#FFFFFF",
-        px: { xs: 1.5, sm: 2.5, md: 4, lg: 5, tv: 6 },
+        px: { xs: 1.5, sm: 2.5, md: 2, lg: 2, tv: 2 },
         pt: { xs: 2, md: 3, tv: 4 },
         pb: { xs: 2.5, md: 4, tv: 5 },
       }}
