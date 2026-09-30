@@ -124,7 +124,7 @@ export default function TestimonialsSection() {
                         height: { xs: 72, sm: 84, md: 96, tv: 110 },
                         flexShrink: 0,
                         borderRadius: "10px",
-                        border: "2px solid #E8F1FF",
+                        // border: "2px solid #E8F1FF",
                       }}
                     />
                     <Box sx={{ flex: 1, minWidth: 0, textAlign: { xs: "center", sm: "left" } }}>

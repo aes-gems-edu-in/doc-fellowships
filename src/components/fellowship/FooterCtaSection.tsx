@@ -33,12 +33,23 @@ export default function FooterCtaSection({ onTalkToExpert }: FooterCtaSectionPro
           sx={{
             position: "relative",
             overflow: "hidden",
-            borderRadius: { xs: "16px", sm: "20px", md: "28px", tv: "32px" },
+            borderRadius: {
+              xs: "16px",
+              sm: "20px",
+              md: "28px",
+              tv: "32px",
+            },
             bgcolor: "#0056D2",
-            minHeight: { xs: "auto", md: 200, lg: 220, tv: 260 },
+            minHeight: {
+              xs: "auto",
+              md: 200,
+              lg: 220,
+              tv: 260,
+            },
             boxShadow: "0 12px 40px rgba(0, 62, 153, 0.22)",
           }}
         >
+          {/* Left Image */}
           <Box
             sx={{
               display: { xs: "none", md: "block" },
@@ -55,6 +66,7 @@ export default function FooterCtaSection({ onTalkToExpert }: FooterCtaSectionPro
             }}
           />
 
+          {/* Image Gradient */}
           <Box
             sx={{
               display: { xs: "none", md: "block" },
@@ -70,6 +82,7 @@ export default function FooterCtaSection({ onTalkToExpert }: FooterCtaSectionPro
             }}
           />
 
+          {/* Wave Background */}
           {waveBg && (
             <Box
               sx={{
@@ -90,13 +103,31 @@ export default function FooterCtaSection({ onTalkToExpert }: FooterCtaSectionPro
             />
           )}
 
+          {/* Main Content */}
           <Box
             sx={{
               position: "relative",
               zIndex: 2,
-              pl: { xs: 2, sm: 3, md: "30%", lg: "26%", tv: "28%" },
-              pr: { xs: 2, sm: 3, md: 3.5, lg: 5, tv: 6 },
-              py: { xs: 3, sm: 3.25, md: 3.5, tv: 4.5 },
+              pl: {
+                xs: 2,
+                sm: 3,
+                md: "30%",
+                lg: "26%",
+                tv: "28%",
+              },
+              pr: {
+                xs: 2,
+                sm: 3,
+                md: 3.5,
+                lg: 5,
+                tv: 6,
+              },
+              py: {
+                xs: 3,
+                sm: 3.25,
+                md: 3.5,
+                tv: 4.5,
+              },
               display: "grid",
               gridTemplateColumns: {
                 xs: "1fr",
@@ -104,17 +135,42 @@ export default function FooterCtaSection({ onTalkToExpert }: FooterCtaSectionPro
                 md: "1.15fr 0.9fr",
                 lg: "1.2fr 0.85fr",
               },
-              gap: { xs: 2.5, sm: 3, md: 3.5, tv: 5 },
+              gap: {
+                xs: 2.5,
+                sm: 3,
+                md: 3.5,
+                tv: 5,
+              },
               alignItems: "center",
-              minHeight: { md: 200, lg: 220, tv: 260 },
+              minHeight: {
+                md: 200,
+                lg: 220,
+                tv: 260,
+              },
             }}
           >
-            <Box sx={{ minWidth: 0, textAlign: { xs: "center", md: "left" } }}>
+            {/* Headline + Description */}
+            <Box
+              sx={{
+                minWidth: 0,
+                width: "100%",
+                textAlign: {
+                  xs: "center",
+                  md: "left",
+                },
+              }}
+            >
               <Typography
                 sx={{
                   color: "rgba(255,255,255,0.92)",
                   fontWeight: 700,
-                  fontSize: { xs: 11, sm: 12, md: 13, lg: 14, tv: 15 },
+                  fontSize: {
+                    xs: 11,
+                    sm: 12,
+                    md: 13,
+                    lg: 14,
+                    tv: 15,
+                  },
                   letterSpacing: "0.08em",
                   lineHeight: 1.35,
                   mb: 1,
@@ -123,6 +179,7 @@ export default function FooterCtaSection({ onTalkToExpert }: FooterCtaSectionPro
               >
                 {footerCta.headline}
               </Typography>
+
               <Typography
                 sx={{
                   color: "#fff",
@@ -134,22 +191,50 @@ export default function FooterCtaSection({ onTalkToExpert }: FooterCtaSectionPro
                     lg: "1.85rem",
                     tv: "2.15rem",
                   },
-                  lineHeight: 1.25,
+                  lineHeight: {
+                    xs: 1.3,
+                    md: 1.25,
+                  },
                   letterSpacing: "-0.01em",
-                  maxWidth: { md: 480, tv: 580 },
-                  mx: { xs: "auto", md: 0 },
+                  maxWidth: {
+                    xs: "100%",
+                    sm: 520,
+                    md: 480,
+                    tv: 580,
+                  },
+                  mx: {
+                    xs: "auto",
+                    md: 0,
+                  },
                   whiteSpace: "pre-line",
+                  overflowWrap: "break-word",
                 }}
               >
                 {footerCta.subheadline}
               </Typography>
             </Box>
 
+            {/* Button + Trust Points */}
             <Stack
-              spacing={{ xs: 2, md: 2.25 }}
+              spacing={{
+                xs: 2,
+                md: 2.25,
+              }}
               alignItems="center"
-              sx={{ justifySelf: { md: "end" }, width: { xs: "100%", md: "auto" } }}
+              sx={{
+                justifySelf: {
+                  xs: "stretch",
+                  md: "end",
+                },
+                width: "100%",
+                maxWidth: {
+                  xs: "100%",
+                  sm: 420,
+                  md: "none",
+                },
+              }}
             >
+              {/* CTA Button */}
               <Button
                 variant="contained"
                 endIcon={<ArrowForwardIcon />}
@@ -157,52 +242,110 @@ export default function FooterCtaSection({ onTalkToExpert }: FooterCtaSectionPro
                 sx={{
                   bgcolor: "#fff",
                   color: "#0056D2",
-                  px: { xs: 2.75, md: 3.25, tv: 3.75 },
-                  py: { xs: 1.2, md: 1.4, tv: 1.55 },
+                  px: {
+                    xs: 2.75,
+                    md: 3.25,
+                    tv: 3.75,
+                  },
+                  py: {
+                    xs: 1.2,
+                    md: 1.4,
+                    tv: 1.55,
+                  },
+                  minHeight: {
+                    xs: 46,
+                    md: 50,
+                  },
                   borderRadius: "999px",
                   fontWeight: 700,
-                  fontSize: { xs: 13.5, md: 14.5, tv: 16 },
+                  fontSize: {
+                    xs: 13.5,
+                    md: 14.5,
+                    tv: 16,
+                  },
                   textTransform: "none",
                   boxShadow: "0 6px 18px rgba(0,0,0,0.12)",
-                  "&:hover": { bgcolor: "#F0F6FF" },
+                  "&:hover": {
+                    bgcolor: "#F0F6FF",
+                  },
                   whiteSpace: "nowrap",
-                  width: { xs: "100%", sm: "auto" },
-                  maxWidth: { xs: 320, sm: "none" },
+                  width: {
+                    xs: "100%",
+                    sm: "auto",
+                  },
+                  maxWidth: {
+                    xs: 320,
+                    sm: "none",
+                  },
                 }}
               >
                 {footerCta.buttonLabel}
               </Button>
 
-              <Stack
-                direction="row"
-                spacing={{ xs: 1.1, sm: 1.5, md: 2 }}
-                flexWrap="nowrap"
-                alignItems="center"
-                justifyContent="center"
+              {/* Trust Points */}
+              <Box
                 sx={{
-                  whiteSpace: "nowrap",
-                  overflowX: { xs: "auto", md: "visible" },
-                  maxWidth: "100%",
-                  pb: { xs: 0.25, md: 0 },
-                  px: { xs: 0.5, md: 0 },
+                  width: "100%",
+                  display: "flex",
+                  flexDirection: "row",
+                  flexWrap: {
+                    xs: "wrap",
+                    sm: "nowrap",
+                  },
+                  gap: {
+                    xs: 1.25,
+                    sm: 1.5,
+                    md: 2,
+                    lg: 2.5,
+                    tv: 3,
+                  },
+                  alignItems: "center",
+                  justifyContent: {
+                    xs: "center",
+                    md: "flex-end",
+                  },
+                  overflow: "hidden",
                 }}
               >
                 {footerCta.trustPoints.map((point) => {
                   const Icon = getIcon(point.icon);
+
                   return (
                     <Stack
                       key={point.id}
                       direction="row"
                       spacing={0.75}
                       alignItems="center"
-                      sx={{ flexShrink: 0 }}
+                      justifyContent="center"
+                      sx={{
+                        flexShrink: 0,
+                        minWidth: 0,
+                        whiteSpace: "nowrap",
+                      }}
                     >
-                      <Icon sx={{ color: "#fff", fontSize: { xs: 15, md: 17, tv: 19 } }} />
+                      <Icon
+                        sx={{
+                          color: "#fff",
+                          fontSize: {
+                            xs: 15,
+                            md: 17,
+                            tv: 19,
+                          },
+                          flexShrink: 0,
+                        }}
+                      />
+
                       <Typography
                         sx={{
                           color: "#fff",
-                          fontSize: { xs: 11.5, sm: 12.5, tv: 14 },
+                          fontSize: {
+                            xs: 11.5,
+                            sm: 12.5,
+                            tv: 14,
+                          },
                           fontWeight: 500,
+                          whiteSpace: "nowrap",
+                          lineHeight: 1.3,
                         }}
                       >
                         {point.label}
@@ -210,7 +353,7 @@ export default function FooterCtaSection({ onTalkToExpert }: FooterCtaSectionPro
                     </Stack>
                   );
                 })}
-              </Stack>
+              </Box>
             </Stack>
           </Box>
         </Box>
