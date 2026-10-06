@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import toast from "react-hot-toast";
 import masterData from "../../data/masterData.json";
+import { captureLead } from "../../services/leadSquared";
 import { ArrowForwardIcon, getIcon } from "../../utils/iconMap";
 
 interface LeadFormCardProps {
@@ -157,43 +158,18 @@ export default function LeadFormCard({ defaultSpecialty = "" }: LeadFormCardProp
       city: form.city.trim(),
     };
 
-    const scriptUrl = process.env.REACT_APP_APPS_SCRIPT_URL?.trim();
     setSubmitting(true);
 
     try {
-      if (scriptUrl) {
-        const body = new URLSearchParams({
-          fullName: payload.fullName,
-          phone: payload.phone,
-          email: payload.email,
-          specialty: payload.specialty,
-          city: payload.city,
-        }).toString();
-
-        await Promise.all([
-          fetch(scriptUrl, {
-            method: "POST",
-            mode: "no-cors",
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
-            },
-            body,
-          }),
-          new Promise((resolve) => setTimeout(resolve, 1500)),
-        ]);
-      } else {
-        console.warn(
-          "REACT_APP_APPS_SCRIPT_URL missing — lead not sent to Google Sheet."
-        );
-        await new Promise((resolve) => setTimeout(resolve, 600));
-      }
-
+      await captureLead(payload);
       toast.success("Thanks! Our team will share program details shortly.");
       setForm(emptyForm(defaultSpecialty));
       setErrors({});
       setTouched({});
-    } catch {
-      toast.error("Could not save your details. Please try again.");
+    } catch (error) {
+      const message =
+        error instanceof Error ? error.message : "Could not save your details. Please try again.";
+      toast.error(message || "Could not save your details. Please try again.");
     } finally {
       setSubmitting(false);
     }
