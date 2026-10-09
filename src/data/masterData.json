@@ -1,0 +1,610 @@
+{
+  "brand": {
+    "name": "DOC TUTORIALS",
+    "logo": "/assets/fellowship/icons/doc.webp",
+    "primaryColor": "#0056D2",
+    "eyebrow": "DOCTUTORIALS FELLOWSHIP"
+  },
+  "hero": {
+    "headlineBefore": "Advanced Fellowship\nPrograms for Doctors\n",
+    "headlineHighlight": "Ready to Go Further",
+    "subheadline": "Advance Your Expertise. Evolve With Medicine.",
+    "description": "Speciality oriented fellowship programs with expert mentorship, hands-on clinical exposure and real-world learning at leading hospitals.",
+    "meta": "3 / 6 / 12 Months | Post-MBBS",
+    "scriptText": "Better Doctors\nBrighter Healthcare",
+    "image": "/assets/fellowship/hero-full.png",
+    "background": "/assets/fellowship/hero-full.png",
+    "cpdBadge": "/assets/fellowship/badges/cpd-logo.jpg",
+    "cpdLabel": "CPD Accredited Fellowship programs",
+    "cpdSubLabel": "Continuing Professional Development",
+    "cpdDescription": "All DocTutorials Fellowship courses are CPD accredited, offering high-quality, structured, and clinically relevant training that meets recognized professional standards. Whether you're building foundational skills or advancing your expertise, our courses ensure your learning is recognized and valued, supporting your continuous professional growth.",
+    "stats": [
+      {
+        "id": "doctors",
+        "value": "1,000+",
+        "label": "Doctors Trained",
+        "icon": "groups"
+      },
+      {
+        "id": "hospitals",
+        "value": "40+",
+        "label": "Partner Hospitals",
+        "icon": "apartment"
+      },
+      {
+        "id": "courses",
+        "value": "80+",
+        "label": "Courses",
+        "icon": "menu_book"
+      },
+      {
+        "id": "mentorship",
+        "value": "",
+        "label": "Expert Mentorship",
+        "icon": "school"
+      }
+    ]
+  },
+  "leadForm": {
+    "eyebrow": "TAKE THE NEXT STEP",
+    "title": "Find the Right Fellowship for Your Career",
+    "subtitle": "Get personalised guidance from our academic team and find the best program for your goals.",
+    "submitLabel": "Get Program Details",
+    "submittingLabel": "Submitting...",
+    "sendOtpLabel": "Send OTP",
+    "sendingOtpLabel": "Sending OTP...",
+    "verifyOtpLabel": "Verify OTP",
+    "verifyingOtpLabel": "Verifying...",
+    "resendOtpLabel": "Resend OTP",
+    "otpVerifiedLabel": "Mobile verified",
+    "countryCode": "+91",
+    "fields": {
+      "fullName": "Full Name",
+      "phone": "Phone Number",
+      "email": "Email Address",
+      "specialty": "Specialty Interested In",
+      "city": "Preferred Location",
+      "otp": "Enter OTP"
+    },
+    "placeholders": {
+      "fullName": "Enter your full name",
+      "phone": "10-digit mobile number",
+      "email": "name@example.com",
+      "specialty": "Select specialty",
+      "city": "Select preferred location",
+      "otp": "6-digit OTP"
+    },
+    "messages": {
+      "fullNameRequired": "Full name is required",
+      "fullNameInvalid": "Enter a valid full name",
+      "phoneRequired": "Mobile number is required",
+      "phoneDigitsOnly": "Mobile number must contain digits only",
+      "phoneLength": "Mobile number must be 10 digits",
+      "phoneInvalid": "Enter a valid Indian mobile number",
+      "emailRequired": "Email address is required",
+      "emailInvalid": "Enter a valid email address",
+      "specialtyRequired": "Please select a specialty",
+      "otpRequired": "Please enter the OTP",
+      "otpInvalid": "Enter a valid OTP",
+      "otpVerifyRequired": "Please verify your mobile number with OTP before submitting.",
+      "otpSent": "OTP sent to your mobile number.",
+      "otpVerified": "Mobile number verified successfully.",
+      "formErrors": "Please fix the form errors.",
+      "success": "Thanks! Our team will share program details shortly.",
+      "failure": "Could not save your details. Please try again."
+    },
+    "trustPoints": [
+      {
+        "id": "guidance",
+        "label": "Expert Guidance",
+        "icon": "support_agent"
+      },
+      {
+        "id": "details",
+        "label": "Program Details",
+        "icon": "description"
+      },
+      {
+        "id": "admission",
+        "label": "Admission Support",
+        "icon": "how_to_reg"
+      }
+    ],
+    "cities": [
+      "KIMS Hospitals, Hyderabad",
+      "KIMS Hospitals, Nellore",
+      "KIMS Hospitals, Rajahmundry",
+      "KIMS Hospitals, Srikakulam",
+      "KIMS Hospitals, Ongole",
+      "KIMS Hospitals, Vizag",
+      "KIMS Hospitals, Anantapur",
+      "KIMS Hospitals, Kurnool",
+      "KIMS Hospitals, Guntur",
+      "Maharashtra - Sangli",
+      "Maharashtra - Nashik",
+      "Maharashtra - Nagpur",
+      "Maharashtra - Thane",
+      "Kerala - Kannur",
+      "Kerala - Karunagappalli",
+      "Karnataka - Bangalore",
+      "Renova Hospitals (All Branches)",
+      "Renova NIGL Hospital - Banjara Hills",
+      "Renova Century Hospital - Banjara Hills",
+      "Renova Neelima Hospital - Sanath Nagar",
+      "Renova Hospital - Langar Houz",
+      "Renova Hospital - Kompally",
+      "Renova Soumya Cancer Centre - Secunderabad",
+      "Renova BIBI Cancer Hospital - Malakpet",
+      "DDH Renova Cancer Centre - Vidya Nagar",
+      "Renova Bannu Hospitals - Warangal",
+      "Renova Cancer Hospitals - Khammam",
+      "KIMS Renova Cancer Institute - Vizag",
+      "RHL Renova Cancer Centre - Jaipur",
+      "Harish Renova Cancer Centre - Alwar",
+      "KD Hospital, Ahmedabad"
+    ]
+  },
+  "specialties": [
+    {
+      "id": "emergency-medicine",
+      "name": "Fellowship in Emergency Medicine",
+      "icon": "local_hospital",
+      "description": "Structured clinical exposure with expert mentorship, emergency care training, and real-world learning at leading hospitals.",
+      "heroImage": "/assets/fellowship/heroes/critical-care.png",
+      "headlineBefore": "Build Advanced Expertise in",
+      "headlineHighlight": "Emergency & Acute Care",
+      "subheadline": "Advance Your Expertise. Evolve With Medicine.",
+      "heroDescription": "Structured clinical exposure with expert mentorship, emergency care training, and real-world learning at leading hospitals.",
+      "meta": "3 / 6 / 12 Months | Post-MBBS",
+      "formEyebrow": "READY TO ADVANCE YOUR EXPERTISE?",
+      "formTitle": "Explore the Emergency Medicine Fellowship",
+      "formSubtitle": "Get personalised guidance on the program, eligibility and next steps."
+    },
+    {
+      "id": "internal-medicine-critical-care",
+      "name": "Clinical Fellowship in Internal Medicine with Critical Care",
+      "icon": "medical_services",
+      "description": "Gain structured clinical exposure with expert mentorship, real-time case learning and exposure to advanced critical care practices at leading hospitals.",
+      "heroImage": "/assets/fellowship/heroes/internal-medicine.png",
+      "headlineBefore": "Build Advanced Expertise in",
+      "headlineHighlight": "Internal Medicine & Critical Care",
+      "subheadline": "Advance Your Expertise. Evolve With Medicine.",
+      "heroDescription": "Gain structured clinical exposure with expert mentorship, real-time case learning and exposure to advanced critical care practices at leading hospitals.",
+      "meta": "3 / 6 / 12 Months | Post-MBBS",
+      "formEyebrow": "READY TO ADVANCE YOUR EXPERTISE?",
+      "formTitle": "Explore the Internal Medicine & Critical Care",
+      "formSubtitle": "Get personalised guidance on the program, eligibility and next steps."
+    },
+    {
+      "id": "critical-care-medicine",
+      "name": "Clinical Fellowship Program in Critical Care Medicine",
+      "icon": "monitor_heart",
+      "description": "Gain structured clinical exposure with expert mentorship, advanced airway management, hemodynamic monitoring, and real-world critical care learning at leading hospitals.",
+      "heroImage": "/assets/fellowship/heroes/critical-care.png",
+      "headlineBefore": "Build Advanced Expertise in",
+      "headlineHighlight": "Critical Care Medicine",
+      "subheadline": "Advance Your Expertise. Evolve With Medicine.",
+      "heroDescription": "Gain structured clinical exposure with expert mentorship, advanced airway management, hemodynamic monitoring, and real-world critical care learning at leading hospitals.",
+      "meta": "3 / 6 / 12 Months | Post-MBBS",
+      "formEyebrow": "READY TO ADVANCE YOUR EXPERTISE?",
+      "formTitle": "Explore the Critical Care Medicine Fellowship",
+      "formSubtitle": "Get personalised guidance on the program, eligibility and next steps."
+    }
+  ],
+  "whyChoose": [
+    {
+      "id": "clinical",
+      "title": "Clinical Exposure",
+      "description": "Train in real hospital environments with supervised patient care, procedures, and case discussions.",
+      "icon": "local_hospital"
+    },
+    {
+      "id": "mentorship",
+      "title": "Expert Mentorship",
+      "description": "Learn directly from experienced specialists and department heads at partner hospitals.",
+      "icon": "psychology"
+    },
+    {
+      "id": "structured",
+      "title": "Structured Learning",
+      "description": "Curriculum-driven modules combining bedside teaching, lectures, and assessments.",
+      "icon": "auto_stories"
+    },
+    {
+      "id": "career",
+      "title": "Career Advancement",
+      "description": "CPD-accredited certification and hospital partnerships that strengthen your clinical profile.",
+      "icon": "trending_up"
+    }
+  ],
+  "programs": [
+    {
+      "id": "emergency-medicine",
+      "specialtyId": "emergency-medicine",
+      "title": "Fellowship in Emergency Medicine",
+      "duration": "3 / 6 / 12 Months",
+      "location": "Multiple Cities",
+      "hospital": "KIMS Hospitals, Renova Hospitals, and partner centres",
+      "department": "Emergency Medicine",
+      "eligibilityLabel": "Post-MBBS",
+      "image": "/assets/fellowship/programs/critical-care.png",
+      "isPopular": true,
+      "featured": true,
+      "overview": "Develop expertise in emergency medicine through structured clinical exposure, hands-on training in airway management, trauma care, and management of acute medical emergencies under experienced emergency medicine specialists.",
+      "eligibility": [
+        "Candidates who have completed their MBBS are eligible to apply."
+      ],
+      "highlights": [
+        "Expert Consultant Mentorship",
+        "Hands-on Clinical Exposure",
+        "CPD & Hospital Certification",
+        "Clinical Decision-Making"
+      ],
+      "curriculum": [
+        "Structured training in triage, stabilization, and emergency department management.",
+        "Hands-on skills in airway management, intubation, and ventilator initiation.",
+        "Practical exposure to trauma, cardiac arrest, and polytrauma management.",
+        "Management of cardiac, respiratory, neurological, and metabolic emergencies.",
+        "Proficiency in toxicology, poisoning, and envenomation protocols."
+      ],
+      "outcomes": [
+        "Gain structured understanding of emergency department triage and patient stabilization workflows.",
+        "Develop familiarity with airway management, intubation, and ventilator initiation.",
+        "Build exposure to trauma, cardiac arrest, and polytrauma care.",
+        "Strengthen understanding of acute cardiac, respiratory, neurological, and metabolic emergency management.",
+        "Enhance awareness of toxicology, poisoning, and envenomation protocols."
+      ],
+      "faqs": [
+        {
+          "question": "Who is eligible to apply for this fellowship?",
+          "answer": "Candidates who have completed their MBBS are eligible to apply."
+        },
+        {
+          "question": "What is the duration of the fellowship?",
+          "answer": "The fellowship is for a duration of 3 / 6 / 12 months."
+        },
+        {
+          "question": "What kind of clinical exposure will I get?",
+          "answer": "Fellows receive advanced speciality orientation in airway management, intubation, ventilator initiation, and stabilization of critically ill and injured patients."
+        },
+        {
+          "question": "Will I get exposure to trauma and cardiac arrest management?",
+          "answer": "Yes, the curriculum includes practical exposure to trauma, polytrauma, and cardiac arrest management."
+        },
+        {
+          "question": "Does the program cover toxicology and poisoning cases?",
+          "answer": "Yes, training includes proficiency-building in toxicology, poisoning, and envenomation protocols."
+        },
+        {
+          "question": "Is certification provided on completion?",
+          "answer": "Yes, fellows receive hospital certification along with CPD credit on successful completion of the program."
+        },
+        {
+          "question": "Is this fellowship full-time?",
+          "answer": "Yes, this is a full-time clinical fellowship requiring active participation in emergency department duties."
+        }
+      ],
+      "fee": "Contact for details",
+      "stipend": ""
+    },
+    {
+      "id": "internal-medicine-critical-care",
+      "specialtyId": "internal-medicine-critical-care",
+      "title": "Clinical Fellowship in Internal Medicine with Critical Care",
+      "duration": "3 / 6 / 12 Months",
+      "location": "",
+      "hospital": "KIMS Hospitals, Renova Hospital, and Ujala Cygnus.",
+      "department": "Internal Medicine",
+      "eligibilityLabel": "Post-MBBS",
+      "image": "/assets/fellowship/programs/internal-medicine.png",
+      "isPopular": false,
+      "featured": true,
+      "overview": "Develop expertise in the critical care management of internal medicine patients through structured clinical exposure, hands-on training in ventilation, hemodynamic monitoring, and management of sepsis and acute kidney injury under experienced physicians and intensivists.",
+      "eligibility": [
+        "Candidates with an MBBS are eligible to apply."
+      ],
+      "highlights": [
+        "Expert Consultant Mentorship",
+        "Hands-on Clinical Exposure",
+        "CPD & Hospital Certification",
+        "Clinical Decision-Making"
+      ],
+      "curriculum": [
+        "Advanced internal medicine decision-making in ICU settings.",
+        "Hemodynamic monitoring and shock management.",
+        "NIV, invasive ventilation & ARDS management.",
+        "Sepsis, infections & antibiotic stewardship.",
+        "AKI, electrolyte and acid-base disorder management."
+      ],
+      "outcomes": [
+        "Gain structured understanding of internal medicine decision-making within ICU settings.",
+        "Develop familiarity with hemodynamic monitoring and shock management.",
+        "Build exposure to non-invasive and invasive ventilation strategies, including ARDS management.",
+        "Strengthen understanding of sepsis management and antibiotic stewardship.",
+        "Enhance awareness of acute kidney injury, electrolyte, and acid-base disorder management."
+      ],
+      "faqs": [
+        {
+          "question": "Who is eligible to apply for this fellowship?",
+          "answer": "Candidates with an MBBS are eligible to apply."
+        },
+        {
+          "question": "What duration options are available?",
+          "answer": "The fellowship is offered in 6-month and 12-month tracks."
+        },
+        {
+          "question": "Where will the training take place?",
+          "answer": "Training is conducted across KIMS Hospitals, Renova Hospital, and Ujala Cygnus."
+        },
+        {
+          "question": "What kind of clinical exposure will I get?",
+          "answer": "Fellows receive exposure to advanced internal medicine decision-making in ICU settings, including hemodynamic monitoring and shock management."
+        },
+        {
+          "question": "Will I get training in ventilation management?",
+          "answer": "Yes, the curriculum includes NIV, invasive ventilation, and ARDS management."
+        },
+        {
+          "question": "Does the program cover sepsis and infection management?",
+          "answer": "Yes, training includes sepsis management and antibiotic stewardship principles."
+        },
+        {
+          "question": "Will I be trained in renal and metabolic disorder management?",
+          "answer": "Yes, the fellowship covers AKI, electrolyte, and acid-base disorder management."
+        },
+        {
+          "question": "Is certification provided on completion?",
+          "answer": "Yes, fellows receive hospital certification along with CPD credit on successful completion of the chosen track."
+        },
+        {
+          "question": "Is this fellowship full-time?",
+          "answer": "Yes, this is a full-time clinical fellowship requiring active participation in ICU and ward duties."
+        }
+      ],
+      "fee": "Contact for details",
+      "stipend": ""
+    },
+    {
+      "id": "critical-care-medicine",
+      "specialtyId": "critical-care-medicine",
+      "title": "Clinical Fellowship Program in Critical Care Medicine",
+      "duration": "3 / 6 / 12 Months",
+      "location": "",
+      "hospital": "",
+      "department": "Critical Care Medicine",
+      "eligibilityLabel": "Post-MBBS",
+      "image": "/assets/fellowship/programs/critical-care.png",
+      "isPopular": false,
+      "featured": true,
+      "overview": "Develop expertise in critical care medicine through structured clinical exposure, hands-on training in advanced airway management, hemodynamic monitoring, renal replacement therapies, and multi-organ failure management under experienced intensivists.",
+      "eligibility": [
+        "Candidates with an MBBS are eligible to apply."
+      ],
+      "highlights": [
+        "Expert Consultant Mentorship",
+        "Hands-on Clinical Exposure",
+        "CPD & Hospital Certification",
+        "Clinical Decision-Making"
+      ],
+      "curriculum": [
+        "Comprehensive training in ICU setup, triage, and multidisciplinary coordination.",
+        "Hands-on experience in advanced airway management and mechanical ventilation.",
+        "Practical exposure to hemodynamic monitoring and shock management.",
+        "Expertise in renal replacement therapies (CRRT, SLED, IHD) and metabolic management.",
+        "Neurological critical care: coma, stroke, TBI, and seizure control.",
+        "Sepsis management with evidence-based protocols and antimicrobial stewardship.",
+        "Intensive exposure to cardiac, respiratory, and ECMO-based critical care.",
+        "Trauma and perioperative care with a focus on multi-organ failure management.",
+        "Ethical grounding in end-of-life decision-making and communication.",
+        "Research, simulation training, and quality improvement initiatives for clinical excellence."
+      ],
+      "outcomes": [
+        "Gain structured understanding of ICU organization, triage, and multidisciplinary coordination.",
+        "Develop familiarity with advanced airway management, mechanical ventilation, and hemodynamic monitoring.",
+        "Build exposure to renal replacement therapies and management of neurological and metabolic critical illness.",
+        "Strengthen understanding of sepsis, trauma, and multi-organ failure management protocols.",
+        "Enhance ethical grounding and academic skills through simulation training and quality improvement exposure."
+      ],
+      "faqs": [
+        {
+          "question": "Who is eligible to apply for this fellowship?",
+          "answer": "Candidates with an MBBS are eligible to apply."
+        },
+        {
+          "question": "What duration options are available?",
+          "answer": "The fellowship is offered in 6-month and 12-month tracks."
+        },
+        {
+          "question": "What kind of clinical exposure will I get?",
+          "answer": "Fellows receive advanced speciality orientation in advanced airway management, mechanical ventilation, and hemodynamic monitoring."
+        },
+        {
+          "question": "Will I get training in renal replacement therapies?",
+          "answer": "Yes, the curriculum includes exposure to CRRT, SLED, and IHD along with metabolic management."
+        },
+        {
+          "question": "Does the program cover neurological critical care?",
+          "answer": "Yes, fellows are trained in managing coma, stroke, traumatic brain injury, and seizure control."
+        },
+        {
+          "question": "Will I be exposed to ECMO-based care?",
+          "answer": "Yes, the program includes intensive exposure to cardiac, respiratory, and ECMO-based critical care."
+        },
+        {
+          "question": "Does the fellowship address sepsis management?",
+          "answer": "Yes, training includes evidence-based sepsis protocols and antimicrobial stewardship."
+        },
+        {
+          "question": "Is certification provided on completion?",
+          "answer": "Yes, fellows receive hospital certification along with CPD credit on successful completion of the chosen track."
+        },
+        {
+          "question": "Is this fellowship full-time?",
+          "answer": "Yes, this is a full-time clinical fellowship requiring active participation in ICU duties."
+        }
+      ],
+      "fee": "Contact for details",
+      "stipend": ""
+    }
+  ],
+  "partners": [
+    {
+      "id": "kims",
+      "name": "KIMS Hospitals",
+      "logo": "/assets/fellowship/new-partners/KIMS Logo.jpg"
+    },
+    {
+      "id": "cuddles",
+      "name": "KIMS Cuddles",
+      "logo": "/assets/fellowship/new-partners/KIMS Cuddles.jpg"
+    },
+    {
+      "id": "kd",
+      "name": "KD Hospital",
+      "logo": "/assets/fellowship/new-partners/KD Hospital.jpg"
+    },
+    {
+      "id": "renova",
+      "name": "Renova Hospital",
+      "logo": "/assets/fellowship/new-partners/Renova Hospitals.jpg"
+    },
+    {
+      "id": "gems",
+      "name": "Great Eastern Medical School and Hospital",
+      "logo": "/assets/fellowship/new-partners/Great Eastern Medical School and Hospital.jpg"
+    },
+    {
+      "id": "ujala",
+      "name": "Ujala Cygnus",
+      "logo": "/assets/fellowship/new-partners/Ujala Cygnus Hospitals.png"
+    },
+    {
+      "id": "mgm",
+      "name": "MGM Healthcare",
+      "logo": "/assets/fellowship/new-partners/MGM Healthcare.jpg"
+    }
+  ],
+  "certificates": [
+    {
+      "id": "certificate-1",
+      "image": "/assets/fellowship/certificates/certificate-1.jpg",
+      "alt": "Certificate of Completion"
+    },
+    {
+      "id": "certificate-2",
+      "image": "/assets/fellowship/certificates/certificate-2.jpg",
+      "alt": "Certificate of Completion"
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "t1",
+      "name": "Dr. Allam Sree Shraddha",
+      "role": "Fellowship in Laparoscopic Gynecology",
+      "quote": "I chose the Fellowship in Laparoscopic Gynecology. This program provided hands-on exposure to real-life cases and was an incredible learning experience. A big thanks to Course Director Dr. Vasundara Ma'am and DocTutorials Fellowship for making this possible.",
+      "avatar": "/assets/fellowship/testimonials/dr-allam-sree-shraddha.jpg"
+    },
+    {
+      "id": "t2",
+      "name": "Dr. Prasanna",
+      "role": "Fellowship in Pediatric Intensive Care",
+      "quote": "I sincerely thank KIMS Hospital and DocTutorials for the opportunity to pursue my Fellowship in Pediatric Intensive Care. The fellowship provided valuable learning experiences and clinical exposure. The continuous guidance and support from the faculty helped me strengthen my clinical skills and gain confidence in managing pediatric critical care cases.",
+      "avatar": "/assets/fellowship/testimonials/dr-prasanna.png"
+    },
+    {
+      "id": "t3",
+      "name": "Dr. Pranit Mehta",
+      "role": "Fellowship in Trauma, Arthroscopy & Arthroplasty",
+      "quote": "Before joining the DocTutorials Fellowship in Trauma, Arthroscopy & Arthroplasty, I had limited exposure to Total Knee Arthroplasty. The structured training and hands-on mentorship helped me develop the knowledge and confidence to manage complex cases. I am deeply grateful to my mentors, Dr. Aswin Sir and Dr. Sathish Reddy Sir, and sincerely thank DocTutorials for this valuable opportunity.",
+      "avatar": "/assets/fellowship/testimonials/dr-pranit-mehta.png"
+    },
+    {
+      "id": "t4",
+      "name": "Dr. Anisha",
+      "role": "Fellowship in Minimal Access Surgery",
+      "quote": "Before joining the DocTutorials Fellowship in Minimal Access Surgery at KIMS Guntur, I lacked confidence in performing minimally invasive surgical techniques. Through this fellowship, I learned multiple techniques and gained the confidence to independently perform umbilical hernia surgeries, laparoscopic cholecystectomy, and laser proctological procedures. I sincerely thank Dr. Vishnu Sir and DocTutorials for this valuable learning experience.",
+      "avatar": "/assets/fellowship/testimonials/dr-anisha.png"
+    }
+  ],
+  "footerCta": {
+    "headline": "READY TO ADVANCE YOUR EXPERTISE?",
+    "subheadline": "Get Personalised Guidance\non Fellowship Programs.",
+    "buttonLabel": "Talk to an Expert",
+    "image": "/assets/fellowship/cta-surgery.png",
+    "trustPoints": [
+      {
+        "id": "guidance",
+        "label": "Expert Guidance",
+        "icon": "support_agent"
+      },
+      {
+        "id": "details",
+        "label": "Program Details",
+        "icon": "description"
+      },
+      {
+        "id": "admission",
+        "label": "Admission Support",
+        "icon": "how_to_reg"
+      }
+    ],
+    "waveBg": "/assets/fellowship/footer-wave-bg.png"
+  },
+  "sections": {
+    "specialties": {
+      "title": "Fellowship Programs",
+      "subtitle": "Select a program to see eligibility, curriculum and outcomes.",
+      "viewProgram": "View Program"
+    },
+    "whyChoose": {
+      "title": "Why Choose DocTutorials Fellowship?",
+      "subtitle": "A learning experience designed around real clinical practice, mentorship, and measurable career growth."
+    },
+    "featured": {
+      "title": "Featured Fellowship Programs",
+      "viewAll": "View All Programs",
+      "learnMore": "Learn More",
+      "mostPopular": "Most Popular",
+      "empty": "No programs found for this speciality.",
+      "conductedAt": "Conducted at"
+    },
+    "partners": {
+      "title": "Our Partner Hospitals",
+      "viewAll": "View All Partner Hospitals",
+      "comingSoon": "Coming Soon"
+    },
+    "certificates": {
+      "title": "Certificates Awarded Upon Successful Completion"
+    },
+    "testimonials": {
+      "title": "Hear From Our Fellowship Alumni",
+      "showMore": "Show more",
+      "showLess": "Show less"
+    },
+    "faqs": {
+      "title": "Course-Related FAQs"
+    },
+    "selectedProgram": {
+      "duration": "Duration",
+      "department": "Department",
+      "eligibility": "Eligibility",
+      "trainingPrefix": "Training:",
+      "description": "Description",
+      "highlights": "What You'll Gain",
+      "curriculum": "Curriculum Highlights",
+      "outcomes": "Outcomes",
+      "outcomesIntro": "By the end of this fellowship, the fellow doctor can expect to:"
+    },
+    "hero": {
+      "homeAriaLabel": "Go to homepage",
+      "cpdAlt": "CPD Accredited",
+      "cpdViewMore": "Show more",
+      "cpdViewLess": "Show less"
+    },
+    "common": {
+      "previous": "Previous",
+      "next": "Next",
+      "comingSoon": "Coming Soon"
+    }
+  }
+}
