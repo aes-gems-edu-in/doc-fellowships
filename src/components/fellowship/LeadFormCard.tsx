@@ -37,6 +37,7 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const NAME_REGEX = /^[a-zA-Z\s.'-]{2,60}$/;
 const PHONE_MAX = 10;
 const OTP_MAX = 6;
+const OTP_COOLDOWN_SEC = 30;
 
 const fieldSx = {
   "& .MuiOutlinedInput-root": {
@@ -89,6 +90,7 @@ export default function LeadFormCard({
   const [verifiedPhone, setVerifiedPhone] = useState("");
   const [sendingOtp, setSendingOtp] = useState(false);
   const [verifyingOtp, setVerifyingOtp] = useState(false);
+  const [cooldownLeft, setCooldownLeft] = useState(0);
 
   useEffect(() => {
     captureUtmFromUrl();
@@ -98,12 +100,21 @@ export default function LeadFormCard({
     setForm((prev) => ({ ...prev, specialty: defaultSpecialty || prev.specialty }));
   }, [defaultSpecialty]);
 
+  useEffect(() => {
+    if (cooldownLeft <= 0) return undefined;
+    const timer = window.setInterval(() => {
+      setCooldownLeft((seconds) => (seconds <= 1 ? 0 : seconds - 1));
+    }, 1000);
+    return () => window.clearInterval(timer);
+  }, [cooldownLeft]);
+
   const resetOtpState = () => {
     setOtp("");
     setOtpError("");
     setOtpSent(false);
     setOtpVerified(false);
     setVerifiedPhone("");
+    setCooldownLeft(0);
   };
 
   const validateField = (name: keyof FormFields, value: string): string => {
@@ -164,7 +175,7 @@ export default function LeadFormCard({
   };
 
   const handleSendOtp = async () => {
-    if (sendingOtp || otpVerified) return;
+    if (sendingOtp || otpVerified || cooldownLeft > 0) return;
 
     const phoneError = validateField("phone", form.phone);
     setTouched((prev) => ({ ...prev, phone: true }));
@@ -180,6 +191,7 @@ export default function LeadFormCard({
       setOtpSent(true);
       setOtp("");
       setOtpError("");
+      setCooldownLeft(OTP_COOLDOWN_SEC);
       toast.success(messages.otpSent);
     } catch (error) {
       const message = error instanceof Error ? error.message : messages.failure;
@@ -435,6 +447,7 @@ export default function LeadFormCard({
                 submitting ||
                 sendingOtp ||
                 verifyingOtp ||
+                cooldownLeft > 0 ||
                 form.phone.trim().length !== PHONE_MAX
               }
               sx={{
@@ -448,13 +461,19 @@ export default function LeadFormCard({
                 color: "#0056D2",
                 whiteSpace: "nowrap",
                 "&:hover": { borderColor: "#0041A8", bgcolor: "rgba(0,86,210,0.04)" },
+                "&.Mui-disabled": {
+                  borderColor: "#C5D0E0",
+                  color: "#7A8BA3",
+                },
               }}
             >
               {sendingOtp
                 ? leadForm.sendingOtpLabel
-                : otpSent
-                  ? leadForm.resendOtpLabel
-                  : leadForm.sendOtpLabel}
+                : cooldownLeft > 0
+                  ? leadForm.resendOtpInLabel.replace("{seconds}", String(cooldownLeft))
+                  : otpSent
+                    ? leadForm.resendOtpLabel
+                    : leadForm.sendOtpLabel}
             </Button>
           )}
         </Stack>
