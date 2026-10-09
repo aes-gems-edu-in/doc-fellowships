@@ -11,7 +11,11 @@ import {
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 import toast from "react-hot-toast";
 import masterData from "../../data/masterData.json";
-import { sendFellowshipOtp, verifyFellowshipOtp } from "../../services/fellowshipOtp";
+import {
+  OtpApiError,
+  sendFellowshipOtp,
+  verifyFellowshipOtp,
+} from "../../services/fellowshipOtp";
 import { captureLead } from "../../services/leadSquared";
 import { ArrowForwardIcon, getIcon } from "../../utils/iconMap";
 import { captureUtmFromUrl, getUtmParams } from "../../utils/utm";
@@ -187,13 +191,17 @@ export default function LeadFormCard({
 
     setSendingOtp(true);
     try {
-      await sendFellowshipOtp(form.phone.trim(), leadForm.countryCode);
+      const res = await sendFellowshipOtp(form.phone.trim(), leadForm.countryCode);
       setOtpSent(true);
       setOtp("");
       setOtpError("");
-      setCooldownLeft(OTP_COOLDOWN_SEC);
-      toast.success(messages.otpSent);
+      setCooldownLeft(res.retryAfter || OTP_COOLDOWN_SEC);
+      toast.success(res.message || messages.otpSent);
     } catch (error) {
+      if (error instanceof OtpApiError && error.retryAfter) {
+        setOtpSent(true);
+        setCooldownLeft(error.retryAfter);
+      }
       const message = error instanceof Error ? error.message : messages.failure;
       toast.error(message || messages.failure);
     } finally {
